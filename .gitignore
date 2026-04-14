@@ -63,3 +63,8 @@ Thumbs.db
 /build/
 /.editorconfig
 /.gitattributes
+# Migration source (never committed)
+*.sql
+*.sql.gz
+/migration-source/
+/wp-content/
