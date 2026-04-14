@@ -16,10 +16,16 @@
     ],
     "require": {
         "composer/installers": "^2.3",
+        "drupal/admin_toolbar": "^3",
         "drupal/core-composer-scaffold": "^11.3",
-        "drupal/core-recipe-unpack": "^11.3",
         "drupal/core-project-message": "^11.3",
-        "drupal/core-recommended": "^11.3"
+        "drupal/core-recipe-unpack": "^11.3",
+        "drupal/core-recommended": "^11.3",
+        "drupal/gin": "^4",
+        "drupal/metatag": "^2",
+        "drupal/pathauto": "^1",
+        "drupal/redirect": "^1",
+        "drupal/token": "^1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -98,5 +104,15 @@
                 "      composer remove drupal/core-project-message"
             ]
         }
+    },
+    "require-dev": {
+        "drupal/coder": "^8.3",
+        "drush/drush": "^13",
+        "mglaman/phpstan-drupal": "^1",
+        "phpstan/extension-installer": "^1",
+        "phpstan/phpstan": "^1",
+        "phpstan/phpstan-deprecation-rules": "^1",
+        "phpunit/phpunit": "^11",
+        "squizlabs/php_codesniffer": "^3"
     }
 }
