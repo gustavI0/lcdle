@@ -1,0 +1,17 @@
+parameters:
+    level: 6
+    paths:
+        - web/modules/custom
+        - web/themes/custom
+    excludePaths:
+        - web/core/*
+        - web/modules/contrib/*
+        - web/themes/contrib/*
+        - vendor/*
+    drupal:
+        drupal_root: web
+    ignoreErrors: []
+    reportUnmatchedIgnoredErrors: true
+
+# Note: phpstan-drupal and phpstan-deprecation-rules are auto-loaded via
+# phpstan/extension-installer. Do not include their .neon files manually.
