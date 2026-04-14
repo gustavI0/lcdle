@@ -12,7 +12,7 @@ use Drupal\user\Entity\Role;
  */
 final class RolesInstallTest extends KernelTestBase {
 
-  protected static $modules = ['system', 'user', 'lcdle_core'];
+  protected static $modules = ['system', 'user', 'field', 'file', 'image', 'media', 'taxonomy', 'lcdle_core'];
 
   protected function setUp(): void {
     parent::setUp();
