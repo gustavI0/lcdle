@@ -1,0 +1,11 @@
+langcode: fr
+status: true
+dependencies: {  }
+third_party_settings: {  }
+name: Article
+type: article
+description: 'Contenu éditorial principal — écrit par un contributeur, rattaché à 0..n thèmes et 0..1 chronique.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

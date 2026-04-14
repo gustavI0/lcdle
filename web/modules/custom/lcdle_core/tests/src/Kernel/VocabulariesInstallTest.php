@@ -12,7 +12,7 @@ use Drupal\taxonomy\Entity\Vocabulary;
  */
 final class VocabulariesInstallTest extends KernelTestBase {
 
-  protected static $modules = ['system', 'user', 'field', 'file', 'image', 'media', 'taxonomy', 'lcdle_core'];
+  protected static $modules = ['system', 'user', 'node', 'text', 'field', 'file', 'image', 'media', 'taxonomy', 'lcdle_core'];
 
   protected function setUp(): void {
     parent::setUp();
