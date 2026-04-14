@@ -68,4 +68,9 @@ final class ArticleFieldsTest extends KernelTestBase {
     $this->assertSame(1, $cardinality, 'field_chronique is single value.');
   }
 
+  public function testFieldThemesIsRequired(): void {
+    $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', 'article');
+    $this->assertTrue($fields['field_themes']->isRequired(), 'field_themes is required (an article must be tagged).');
+  }
+
 }
