@@ -1,0 +1,20 @@
+langcode: fr
+status: true
+dependencies:
+  module:
+    - content_moderation
+    - node
+id: contributor_trusted
+label: 'Contributeur'
+weight: 4
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'create article content'
+  - 'delete own article content'
+  - 'edit own article content'
+  - 'use article_workflow transition create_new_draft'
+  - 'use article_workflow transition publish'
+  - 'use article_workflow transition submit_for_review'
+  - 'view own unpublished content'

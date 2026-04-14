@@ -1,0 +1,30 @@
+langcode: fr
+status: true
+dependencies:
+  module:
+    - content_moderation
+    - node
+    - taxonomy
+id: editor
+label: Éditeur
+weight: 5
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'administer taxonomy'
+  - 'create article content'
+  - 'delete any article content'
+  - 'delete own article content'
+  - 'edit any article content'
+  - 'edit own article content'
+  - 'use article_workflow transition archive'
+  - 'use article_workflow transition create_new_draft'
+  - 'use article_workflow transition publish'
+  - 'use article_workflow transition reject'
+  - 'use article_workflow transition restore_to_draft'
+  - 'use article_workflow transition submit_for_review'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'
