@@ -1,0 +1,20 @@
+name: lcdle
+type: drupal11
+docroot: web
+php_version: "8.4"
+webserver_type: nginx-fpm
+database:
+  type: postgres
+  version: "16"
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+use_dns_when_possible: true
+composer_version: "2"
+web_environment:
+  - DRUSH_OPTIONS_URI=https://lcdle.ddev.site
+nodejs_version: "22"
+corepack_enable: true
+timezone: Europe/Paris
