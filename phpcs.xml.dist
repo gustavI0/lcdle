@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<ruleset name="lcdle">
+    <description>PHPCS rules for lcdle custom code.</description>
+
+    <arg name="extensions" value="php,module,inc,install,test,profile,theme,info,txt,md,yml"/>
+    <arg name="colors"/>
+    <arg value="sp"/>
+
+    <file>web/modules/custom</file>
+    <file>web/themes/custom</file>
+
+    <rule ref="Drupal"/>
+    <rule ref="DrupalPractice"/>
+
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>
