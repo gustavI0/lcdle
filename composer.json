@@ -111,6 +111,8 @@
         "drupal/coder": "^8.3",
         "drush/drush": "^13",
         "mglaman/phpstan-drupal": "^1",
+        "mikey179/vfsstream": "^1.6",
+        "phpspec/prophecy-phpunit": "^2.5",
         "phpstan/extension-installer": "^1",
         "phpstan/phpstan": "^1",
         "phpstan/phpstan-deprecation-rules": "^1",

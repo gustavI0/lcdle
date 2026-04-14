@@ -1,0 +1,20 @@
+name: 'LCDLE Core'
+type: module
+description: 'Content model for La Culture de l''Écran — article content type, vocabularies, roles, moderation workflow, and URL patterns.'
+package: 'LCDLE'
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:text
+  - drupal:datetime
+  - drupal:media
+  - drupal:media_library
+  - drupal:image
+  - drupal:file
+  - drupal:views
+  - drupal:workflows
+  - drupal:content_moderation
+  - drupal:path
+  - drupal:path_alias
+  - pathauto:pathauto
