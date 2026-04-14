@@ -1,0 +1,19 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_excerpt
+    - node.type.article
+id: node.article.field_excerpt
+field_name: field_excerpt
+entity_type: node
+bundle: article
+label: "Résumé"
+description: 'Texte court pour les cards, la newsletter et les métadonnées OpenGraph.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  case_sensitive: false
+field_type: string_long

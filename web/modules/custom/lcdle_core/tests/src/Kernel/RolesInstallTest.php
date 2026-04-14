@@ -12,11 +12,27 @@ use Drupal\user\Entity\Role;
  */
 final class RolesInstallTest extends KernelTestBase {
 
-  protected static $modules = ['system', 'user', 'node', 'text', 'field', 'file', 'image', 'media', 'taxonomy', 'lcdle_core'];
+  protected static $modules = [
+    'system',
+    'user',
+    'node',
+    'text',
+    'field',
+    'file',
+    'image',
+    'media',
+    'taxonomy',
+    'views',
+    'media_library',
+    'workflows',
+    'content_moderation',
+    'path',
+    'lcdle_core',
+  ];
 
   protected function setUp(): void {
     parent::setUp();
-    $this->installConfig(['lcdle_core']);
+    $this->installConfig(['node', 'lcdle_core']);
   }
 
   public function testAllProjectRolesExist(): void {

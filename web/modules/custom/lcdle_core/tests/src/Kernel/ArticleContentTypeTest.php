@@ -22,12 +22,17 @@ final class ArticleContentTypeTest extends KernelTestBase {
     'file',
     'image',
     'media',
+    'views',
+    'media_library',
+    'workflows',
+    'content_moderation',
+    'path',
     'lcdle_core',
   ];
 
   protected function setUp(): void {
     parent::setUp();
-    $this->installConfig(['lcdle_core']);
+    $this->installConfig(['node', 'lcdle_core']);
   }
 
   public function testArticleNodeTypeExists(): void {

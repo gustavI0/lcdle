@@ -1,0 +1,64 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+    - field.field.node.article.field_chronique
+    - field.field.node.article.field_cover_image
+    - field.field.node.article.field_excerpt
+    - field.field.node.article.field_themes
+    - node.type.article
+  module:
+    - media
+    - text
+    - user
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    weight: 30
+    region: content
+    third_party_settings: {  }
+  field_chronique:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    weight: 22
+    region: content
+    third_party_settings: {  }
+  field_cover_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    weight: 10
+    region: content
+    third_party_settings: {  }
+  field_excerpt:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    weight: 20
+    region: content
+    third_party_settings: {  }
+  field_themes:
+    type: entity_reference_label
+    label: inline
+    settings:
+      link: true
+    weight: 21
+    region: content
+    third_party_settings: {  }
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden: {  }
