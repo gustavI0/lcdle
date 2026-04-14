@@ -1,0 +1,47 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install, update and uninstall functions for the lcdle_core module.
+ */
+
+use Drupal\Core\Serialization\Yaml;
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ *
+ * Re-applies the permissions from role YAMLs after the module's full config
+ * is installed. Required because Drupal strips permissions that reference
+ * entities not yet present at the moment the role is first imported — our
+ * roles reference article_workflow transition permissions that only exist
+ * once the workflow config is installed (later in the same install batch).
+ */
+function lcdle_core_install(): void {
+  $module_path = \Drupal::service('extension.list.module')->getPath('lcdle_core');
+  $config_dir = $module_path . '/config/install';
+
+  foreach (['reader', 'contributor_new', 'contributor_trusted', 'editor'] as $rid) {
+    $yaml_path = $config_dir . '/user.role.' . $rid . '.yml';
+    if (!file_exists($yaml_path)) {
+      continue;
+    }
+
+    $data = Yaml::decode(file_get_contents($yaml_path));
+    $role = Role::load($rid);
+    if ($role === NULL) {
+      continue;
+    }
+
+    $current = $role->getPermissions();
+    $wanted = $data['permissions'] ?? [];
+    foreach ($wanted as $perm) {
+      if (!in_array($perm, $current, TRUE)) {
+        $role->grantPermission($perm);
+      }
+    }
+    $role->save();
+  }
+}
