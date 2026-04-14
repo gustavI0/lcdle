@@ -1,0 +1,14 @@
+uuid: ec2b3a91-47f4-4d4c-a8a5-780dcf41c152
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
