@@ -1,0 +1,63 @@
+# Composer
+/vendor/
+/web/core/
+/web/libraries/
+/web/modules/contrib/
+/web/profiles/contrib/
+/web/themes/contrib/
+/web/sites/*/files/
+/web/sites/*/private/
+/web/sites/*/settings.local.php
+/web/sites/*/services.local.yml
+/drush/Commands/contrib/
+
+# Drupal scaffold-managed files
+/web/.csslintrc
+/web/.editorconfig
+/web/.eslintignore
+/web/.eslintrc.json
+/web/.gitattributes
+/web/.ht.router.php
+/web/.htaccess
+/web/INSTALL.txt
+/web/README.md
+/web/autoload.php
+/web/example.gitignore
+/web/index.php
+/web/robots.txt
+/web/update.php
+/web/web.config
+
+# DDEV
+.ddev/db_snapshots/
+.ddev/.global_commands/
+.ddev/apache/
+.ddev/homeadditions/
+.ddev/providers/
+.ddev/commands/host/.gitignore
+.ddev/commands/web/.gitignore
+.ddev/commands/db/.gitignore
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+.phpunit.result.cache
+/web/sites/simpletest/
+
+# Build / logs
+*.log
+/coverage/
+/build/
