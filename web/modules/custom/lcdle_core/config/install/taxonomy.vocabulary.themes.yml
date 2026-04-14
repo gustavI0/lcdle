@@ -1,0 +1,7 @@
+langcode: fr
+status: true
+dependencies: {  }
+name: Thèmes
+vid: themes
+description: 'Catégories transversales (musique, cinéma, série, livres…). Gérés par les éditeurs.'
+weight: 0

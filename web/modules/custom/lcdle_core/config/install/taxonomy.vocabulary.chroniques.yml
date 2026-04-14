@@ -1,0 +1,7 @@
+langcode: fr
+status: true
+dependencies: {  }
+name: Chroniques
+vid: chroniques
+description: 'Séries récurrentes dans l''espace d''un contributeur (optionnel). Créables par les contributeurs.'
+weight: 1

@@ -1,0 +1,7 @@
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Tags (legacy WP)'
+vid: tags_legacy
+description: 'Quarantaine pour les tags importés depuis WordPress, en attente de triage manuel.'
+weight: 2
