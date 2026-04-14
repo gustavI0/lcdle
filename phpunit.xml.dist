@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/11.5/phpunit.xsd"
+         bootstrap="web/core/tests/bootstrap.php"
+         colors="true"
+         beStrictAboutTestsThatDoNotTestAnything="true"
+         beStrictAboutOutputDuringTests="true"
+         failOnWarning="true"
+         failOnRisky="true"
+         cacheDirectory=".phpunit.cache"
+         executionOrder="random"
+         resolveDependencies="true">
+    <php>
+        <env name="SIMPLETEST_BASE_URL" value="https://lcdle.ddev.site"/>
+        <env name="SIMPLETEST_DB" value="pgsql://db:db@db:5432/db"/>
+        <env name="BROWSERTEST_OUTPUT_DIRECTORY" value="/var/www/html/web/sites/simpletest/browser_output"/>
+        <env name="BROWSERTEST_OUTPUT_VERBOSE" value="true"/>
+        <env name="SYMFONY_DEPRECATIONS_HELPER" value="weak"/>
+        <env name="MINK_DRIVER_CLASS" value=""/>
+        <env name="MINK_DRIVER_ARGS" value=""/>
+        <env name="MINK_DRIVER_ARGS_WEBDRIVER" value=""/>
+    </php>
+    <testsuites>
+        <testsuite name="unit">
+            <directory>web/modules/custom/*/tests/src/Unit</directory>
+        </testsuite>
+        <testsuite name="kernel">
+            <directory>web/modules/custom/*/tests/src/Kernel</directory>
+        </testsuite>
+        <testsuite name="functional">
+            <directory>web/modules/custom/*/tests/src/Functional</directory>
+        </testsuite>
+    </testsuites>
+    <source restrictDeprecations="true" restrictNotices="true" restrictWarnings="true">
+        <include>
+            <directory>web/modules/custom</directory>
+        </include>
+    </source>
+</phpunit>

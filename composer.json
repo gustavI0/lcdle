@@ -106,6 +106,8 @@
         }
     },
     "require-dev": {
+        "behat/mink": "^1.12",
+        "behat/mink-browserkit-driver": "^2.2",
         "drupal/coder": "^8.3",
         "drush/drush": "^13",
         "mglaman/phpstan-drupal": "^1",
