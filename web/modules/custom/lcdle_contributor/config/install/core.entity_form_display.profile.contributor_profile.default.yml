@@ -1,0 +1,80 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.profile.contributor_profile.field_accent_color
+    - field.field.profile.contributor_profile.field_avatar
+    - field.field.profile.contributor_profile.field_banner
+    - field.field.profile.contributor_profile.field_bio
+    - field.field.profile.contributor_profile.field_display_name
+    - field.field.profile.contributor_profile.field_slug
+    - field.field.profile.contributor_profile.field_social_links
+    - profile.type.contributor_profile
+  module:
+    - image
+    - link
+    - text
+id: profile.contributor_profile.default
+targetEntityType: profile
+bundle: contributor_profile
+mode: default
+content:
+  field_display_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_slug:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: 'alice'
+    third_party_settings: {  }
+  field_avatar:
+    type: image_image
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_banner:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: medium
+    third_party_settings: {  }
+  field_bio:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 8
+      placeholder: ''
+    third_party_settings: {  }
+  field_social_links:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: 'https://mastodon.example/@alice'
+      placeholder_title: 'Mastodon'
+    third_party_settings: {  }
+  field_accent_color:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 8
+      placeholder: '#3B82F6'
+    third_party_settings: {  }
+hidden:
+  created: true
+  uid: true
