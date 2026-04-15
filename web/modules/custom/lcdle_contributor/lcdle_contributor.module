@@ -8,13 +8,29 @@ declare(strict_types=1);
  */
 
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\Core\Field\FieldDefinitionInterface;
 
 /**
  * Implements hook_entity_bundle_field_info_alter().
+ *
+ * Drupal's FieldConfig does not load a `constraints:` key from YAML
+ * (not in its config_export schema), so constraints on field_slug are
+ * registered programmatically here.
+ *
+ * - UniqueField runs on the FieldItemList (the whole field).
+ * - Regex runs on the string 'value' property of each FieldItem, so it must
+ *   be registered via addPropertyConstraints() to receive a plain string.
+ * - ContributorSlugBlacklist runs on the FieldItemList; its validator
+ *   extracts the string value internally.
  */
 function lcdle_contributor_entity_bundle_field_info_alter(array &$fields, EntityTypeInterface $entity_type, string $bundle): void {
   if ($entity_type->id() === 'profile' && $bundle === 'contributor_profile' && isset($fields['field_slug'])) {
     $fields['field_slug']->addConstraint('UniqueField');
+    $fields['field_slug']->addPropertyConstraints('value', [
+      'Regex' => [
+        'pattern' => '/^[a-z0-9][a-z0-9-]{1,58}[a-z0-9]$/',
+        'message' => 'Le slug ne peut contenir que des lettres minuscules, des chiffres et des tirets, et doit commencer et finir par un caractère alphanumérique (3 à 60 caractères).',
+      ],
+    ]);
+    $fields['field_slug']->addConstraint('ContributorSlugBlacklist');
   }
 }

@@ -42,4 +42,62 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
     $this->assertGreaterThan(0, $violations_b->count(), 'Duplicate slug is rejected.');
   }
 
+  /**
+   * @dataProvider provideBlacklistedSlugs
+   */
+  public function testSlugBlacklistRejectsReserved(string $slug): void {
+    $user = User::create(['name' => 'eve_' . $slug, 'mail' => $slug . '@example.test', 'status' => 1]);
+    $user->save();
+    $profile = Profile::create([
+      'type' => 'contributor_profile',
+      'uid' => $user->id(),
+      'field_slug' => $slug,
+    ]);
+    $violations = $profile->validate();
+    $this->assertGreaterThan(
+      0,
+      $violations->count(),
+      "Reserved slug '{$slug}' must be rejected.",
+    );
+  }
+
+  public static function provideBlacklistedSlugs(): array {
+    return [
+      ['admin'],
+      ['user'],
+      ['node'],
+      ['api'],
+      ['theme'],
+      ['newsletter'],
+      ['contribute'],
+      ['feed'],
+      ['rss'],
+      ['login'],
+    ];
+  }
+
+  public function testShortSlugIsRejected(): void {
+    $user = User::create(['name' => 'shortie', 'mail' => 'shortie@example.test', 'status' => 1]);
+    $user->save();
+    $profile = Profile::create([
+      'type' => 'contributor_profile',
+      'uid' => $user->id(),
+      'field_slug' => 'a',
+    ]);
+    $violations = $profile->validate();
+    $this->assertGreaterThan(0, $violations->count(), 'Too-short slug rejected.');
+  }
+
+  public function testUppercaseSlugIsRejected(): void {
+    $user = User::create(['name' => 'caps', 'mail' => 'caps@example.test', 'status' => 1]);
+    $user->save();
+    $profile = Profile::create([
+      'type' => 'contributor_profile',
+      'uid' => $user->id(),
+      'field_slug' => 'Alice',
+    ]);
+    $violations = $profile->validate();
+    $this->assertGreaterThan(0, $violations->count(), 'Uppercase slug rejected by regex.');
+  }
+
 }

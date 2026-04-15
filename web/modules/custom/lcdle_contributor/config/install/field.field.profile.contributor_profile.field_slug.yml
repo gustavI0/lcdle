@@ -16,8 +16,3 @@ default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: string
-constraints:
-  UniqueField: {  }
-  Regex:
-    pattern: '/^[a-z0-9][a-z0-9-]{1,58}[a-z0-9]$/'
-    message: 'Le slug ne peut contenir que des lettres minuscules, des chiffres et des tirets, et doit commencer et finir par un caractère alphanumérique (3 à 60 caractères).'
