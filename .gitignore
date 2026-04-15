@@ -55,6 +55,7 @@ Thumbs.db
 
 # PHPUnit
 .phpunit.result.cache
+.phpunit.cache/
 /web/sites/simpletest/
 
 # Build / logs
