@@ -51,3 +51,74 @@ jobs:
         run: composer install --no-interaction --prefer-dist --no-progress
       - name: Run PHPUnit unit suite
         run: vendor/bin/phpunit --testsuite=unit
+
+  kernel-tests:
+    name: PHPUnit (kernel)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: drupal
+          POSTGRES_PASSWORD: drupal
+          POSTGRES_DB: drupal
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          coverage: none
+          tools: composer:v2
+          extensions: pdo_pgsql, gd, intl, zip, mbstring
+      - name: Install Composer deps
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Run kernel suite
+        env:
+          SIMPLETEST_DB: pgsql://drupal:drupal@localhost:5432/drupal
+          SIMPLETEST_BASE_URL: http://localhost
+        run: vendor/bin/phpunit --testsuite=kernel
+
+  functional-tests:
+    name: PHPUnit (functional)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: drupal
+          POSTGRES_PASSWORD: drupal
+          POSTGRES_DB: drupal
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          coverage: none
+          tools: composer:v2
+          extensions: pdo_pgsql, gd, intl, zip, mbstring
+      - name: Install Composer deps
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Run PHP built-in server
+        run: php -S 127.0.0.1:8080 -t web >/tmp/php-server.log 2>&1 &
+      - name: Run functional suite
+        env:
+          SIMPLETEST_DB: pgsql://drupal:drupal@localhost:5432/drupal
+          SIMPLETEST_BASE_URL: http://127.0.0.1:8080
+          BROWSERTEST_OUTPUT_DIRECTORY: /tmp/browser_output
+        run: |
+          mkdir -p /tmp/browser_output
+          vendor/bin/phpunit --testsuite=functional
