@@ -1,0 +1,15 @@
+name: 'LCDLE Contributor'
+type: module
+description: 'Contributor profiles (Profile type + slug + /{slug} route) for La Culture de l''Écran.'
+package: 'LCDLE'
+core_version_requirement: ^11
+dependencies:
+  - drupal:user
+  - drupal:node
+  - drupal:image
+  - drupal:file
+  - drupal:link
+  - drupal:path_alias
+  - lcdle_core:lcdle_core
+  - profile:profile
+  - pathauto:pathauto

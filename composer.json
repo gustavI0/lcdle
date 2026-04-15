@@ -24,6 +24,7 @@
         "drupal/gin": "^4",
         "drupal/metatag": "^2",
         "drupal/pathauto": "^1",
+        "drupal/profile": "^1.13",
         "drupal/redirect": "^1",
         "drupal/token": "^1"
     },
