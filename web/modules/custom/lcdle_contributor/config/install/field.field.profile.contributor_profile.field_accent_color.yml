@@ -1,0 +1,18 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_accent_color
+    - profile.type.contributor_profile
+id: profile.contributor_profile.field_accent_color
+field_name: field_accent_color
+entity_type: profile
+bundle: contributor_profile
+label: 'Couleur d''accent'
+description: 'Format hexadécimal #RRGGBB. Préparé pour la personnalisation visuelle légère (phase 5+) — ignoré au MVP.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

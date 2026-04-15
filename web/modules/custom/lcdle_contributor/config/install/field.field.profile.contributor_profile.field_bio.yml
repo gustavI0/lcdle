@@ -1,0 +1,21 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_bio
+    - profile.type.contributor_profile
+  module:
+    - text
+id: profile.contributor_profile.field_bio
+field_name: field_bio
+entity_type: profile
+bundle: contributor_profile
+label: Bio
+description: 'Présentation publique du contributeur (plusieurs paragraphes possibles).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
