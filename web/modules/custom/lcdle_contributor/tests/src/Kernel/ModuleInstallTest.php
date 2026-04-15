@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\lcdle_contributor\Kernel;
 
-use Drupal\KernelTests\KernelTestBase;
-
 /**
  * @group lcdle_contributor
  */
-final class ModuleInstallTest extends KernelTestBase {
-
-  protected static $modules = ['lcdle_contributor'];
+final class ModuleInstallTest extends LcdleContributorKernelTestBase {
 
   public function testModuleIsInstallable(): void {
     $this->assertTrue(
