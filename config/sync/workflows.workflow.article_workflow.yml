@@ -1,0 +1,79 @@
+uuid: 0d68c21c-bb0a-43e4-b2da-a59751b7576d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+  module:
+    - content_moderation
+_core:
+  default_config_hash: VlISM3__Hug83QRbNISP6kYTpEJF7HfXPSw8lC2cUAM
+id: article_workflow
+label: 'Workflow Article'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      label: Archivé
+      weight: 3
+      published: false
+      default_revision: true
+    draft:
+      label: Brouillon
+      weight: 0
+      published: false
+      default_revision: false
+    needs_review:
+      label: 'En relecture'
+      weight: 1
+      published: false
+      default_revision: false
+    published:
+      label: Publié
+      weight: 2
+      published: true
+      default_revision: true
+  transitions:
+    create_new_draft:
+      label: 'Sauvegarder en brouillon'
+      from:
+        - draft
+        - published
+      to: draft
+      weight: 0
+    submit_for_review:
+      label: 'Soumettre en relecture'
+      from:
+        - draft
+      to: needs_review
+      weight: 1
+    publish:
+      label: Publier
+      from:
+        - draft
+        - needs_review
+        - archived
+      to: published
+      weight: 2
+    reject:
+      label: 'Renvoyer en brouillon'
+      from:
+        - needs_review
+      to: draft
+      weight: 3
+    restore_to_draft:
+      label: 'Dépublier (retour en brouillon)'
+      from:
+        - published
+      to: draft
+      weight: 4
+    archive:
+      label: Archiver
+      from:
+        - published
+      to: archived
+      weight: 5
+  entity_types:
+    node:
+      - article
+  default_moderation_state: draft

@@ -8,24 +8,38 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\workflows\Entity\Workflow;
 
 /**
+ * Tests the article_workflow installed by lcdle_core.
+ *
  * @group lcdle_core
  */
 final class WorkflowTest extends KernelTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
-    'system','user','node','text','field','taxonomy','file','image','media','media_library','workflows','content_moderation','views','path','path_alias','token','pathauto','lcdle_core',
+    'system', 'user', 'node', 'text', 'field', 'taxonomy', 'file', 'image', 'media', 'media_library', 'workflows', 'content_moderation', 'views', 'path', 'path_alias', 'token', 'pathauto', 'lcdle_core',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installConfig(['node', 'lcdle_core']);
   }
 
+  /**
+   * Tests the article_workflow entity is installed.
+   */
   public function testArticleWorkflowExists(): void {
     $workflow = Workflow::load('article_workflow');
     $this->assertNotNull($workflow, 'article_workflow exists.');
   }
 
+  /**
+   * Tests the workflow has exactly 4 states.
+   */
   public function testWorkflowHasExpectedStates(): void {
     $workflow = Workflow::load('article_workflow');
     $states = array_keys($workflow->getTypePlugin()->getStates());
@@ -37,6 +51,9 @@ final class WorkflowTest extends KernelTestBase {
     );
   }
 
+  /**
+   * Tests the workflow has exactly 6 transitions.
+   */
   public function testWorkflowHasExpectedTransitions(): void {
     $workflow = Workflow::load('article_workflow');
     $transitions = array_keys($workflow->getTypePlugin()->getTransitions());
@@ -48,6 +65,9 @@ final class WorkflowTest extends KernelTestBase {
     );
   }
 
+  /**
+   * Tests the article bundle is covered by the workflow.
+   */
   public function testArticleBundleIsModerated(): void {
     $workflow = Workflow::load('article_workflow');
     $settings = $workflow->getTypePlugin()->getConfiguration();

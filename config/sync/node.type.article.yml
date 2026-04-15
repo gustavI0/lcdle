@@ -1,0 +1,13 @@
+uuid: 6b72d43d-612e-42a6-a9c6-0920a6988c99
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: X0tH_ofVVWfLIBA4CtjDo824YsiMZtUa8qT4_FT9UOM
+name: Article
+type: article
+description: 'Contenu éditorial principal — écrit par un contributeur, rattaché à 0..n thèmes et 0..1 chronique.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

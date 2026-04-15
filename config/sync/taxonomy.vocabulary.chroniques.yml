@@ -1,0 +1,11 @@
+uuid: 8245aae9-6156-4d54-aa79-b734611201ce
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Do6bvGuZWVxo7kORm6s4tWlLuzDl-dZicNBkNNlnVrE
+name: Chroniques
+vid: chroniques
+description: "Séries récurrentes dans l'espace d'un contributeur (optionnel). Créables par les contributeurs."
+weight: 1
+new_revision: false

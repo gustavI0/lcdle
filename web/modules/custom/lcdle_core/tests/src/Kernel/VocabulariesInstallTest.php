@@ -8,10 +8,15 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\taxonomy\Entity\Vocabulary;
 
 /**
+ * Tests that lcdle_core installs all project taxonomies.
+ *
  * @group lcdle_core
  */
 final class VocabulariesInstallTest extends KernelTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'system',
     'user',
@@ -33,12 +38,17 @@ final class VocabulariesInstallTest extends KernelTestBase {
     'lcdle_core',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installConfig(['node', 'lcdle_core']);
   }
 
   /**
+   * Tests each vocabulary exists.
+   *
    * @dataProvider provideVocabularyIds
    */
   public function testVocabularyExists(string $vid): void {
@@ -46,6 +56,11 @@ final class VocabulariesInstallTest extends KernelTestBase {
     $this->assertNotNull($vocabulary, "Vocabulary {$vid} is installed.");
   }
 
+  /**
+   * Provides vocabulary IDs to test.
+   *
+   * @return array<string, array{string}>
+   */
   public static function provideVocabularyIds(): array {
     return [
       'themes' => ['themes'],

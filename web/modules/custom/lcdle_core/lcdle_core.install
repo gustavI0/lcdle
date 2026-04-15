@@ -1,13 +1,13 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Install, update and uninstall functions for the lcdle_core module.
  */
 
-use Drupal\Core\Serialization\Yaml;
+declare(strict_types=1);
+
+use Drupal\Component\Serialization\Yaml;
 use Drupal\user\Entity\Role;
 
 /**

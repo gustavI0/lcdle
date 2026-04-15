@@ -1,0 +1,26 @@
+uuid: b238725a-2c80-4f92-8a08-044502421090
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.article
+  module:
+    - text
+_core:
+  default_config_hash: bSUjHMuPIlI1900SYs3ps4NFnYywK54gmNtp8Tzr_fg
+id: node.article.body
+field_name: body
+entity_type: node
+bundle: article
+label: Corps
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

@@ -1,0 +1,26 @@
+uuid: 7602693c-1b53-4101-966f-917d280a11c9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - workflows.workflow.article_workflow
+  module:
+    - content_moderation
+    - node
+    - system
+_core:
+  default_config_hash: vGqcA1UxLZsQs5MNHaMfFTGMOIb8M37do8YjD3Uy_qk
+id: contributor_new
+label: 'Contributeur (en probation)'
+weight: 3
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'create article content'
+  - 'delete own article content'
+  - 'edit own article content'
+  - 'use article_workflow transition create_new_draft'
+  - 'use article_workflow transition submit_for_review'
+  - 'view own unpublished content'

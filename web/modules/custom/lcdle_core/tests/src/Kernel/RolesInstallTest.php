@@ -8,10 +8,15 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\user\Entity\Role;
 
 /**
+ * Tests that lcdle_core installs all project roles.
+ *
  * @group lcdle_core
  */
 final class RolesInstallTest extends KernelTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'system',
     'user',
@@ -33,11 +38,17 @@ final class RolesInstallTest extends KernelTestBase {
     'lcdle_core',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installConfig(['node', 'lcdle_core']);
   }
 
+  /**
+   * Tests that all four project roles are installed.
+   */
   public function testAllProjectRolesExist(): void {
     foreach (['reader', 'contributor_new', 'contributor_trusted', 'editor'] as $rid) {
       $role = Role::load($rid);

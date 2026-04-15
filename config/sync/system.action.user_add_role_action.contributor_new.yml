@@ -1,0 +1,14 @@
+uuid: c771c3a4-a443-4c34-88ca-ef936c1f39a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contributor_new
+  module:
+    - user
+id: user_add_role_action.contributor_new
+label: 'Add the Contributeur (en probation) role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: contributor_new

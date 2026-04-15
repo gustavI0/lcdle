@@ -1,0 +1,14 @@
+uuid: c1ed082f-89ba-401f-9220-aa8a52cc690e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+_core:
+  default_config_hash: pvnM6mGekeMFeuZ44Nla26kvNIy9KrUfsKjUdV5lnB4
+id: reader
+label: Lecteur
+weight: 2
+is_admin: false
+permissions:
+  - 'access content'

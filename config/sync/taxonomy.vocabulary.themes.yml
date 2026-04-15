@@ -1,0 +1,11 @@
+uuid: 5dc31f5e-58b4-44a5-ae4f-233aefb18f12
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ag9shkiTAeYDlYIhEsDNEFeGempJqCVkUG61OcwBY7g
+name: Thèmes
+vid: themes
+description: 'Catégories transversales (musique, cinéma, série, livres…). Gérés par les éditeurs.'
+weight: 0
+new_revision: false

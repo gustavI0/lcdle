@@ -8,14 +8,25 @@ use Drupal\Tests\BrowserTestBase;
 use Drupal\node\Entity\Node;
 
 /**
+ * Tests role-based workflow permissions via the UI.
+ *
  * @group lcdle_core
  */
 final class WorkflowPermissionsTest extends BrowserTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = ['lcdle_core'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected $defaultTheme = 'stark';
 
+  /**
+   * Tests contributor_new cannot publish directly (only submit for review).
+   */
   public function testContributorNewCannotPublishDirectly(): void {
     $user = $this->drupalCreateUser([], NULL, FALSE, ['roles' => ['contributor_new']]);
     $user->addRole('contributor_new');
@@ -31,6 +42,9 @@ final class WorkflowPermissionsTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('En relecture');
   }
 
+  /**
+   * Tests contributor_trusted can publish an article directly.
+   */
   public function testContributorTrustedCanPublishDirectly(): void {
     $user = $this->drupalCreateUser([], NULL, FALSE, ['roles' => ['contributor_trusted']]);
     $user->addRole('contributor_trusted');
@@ -44,6 +58,9 @@ final class WorkflowPermissionsTest extends BrowserTestBase {
     $this->assertSession()->pageTextContains('Publié');
   }
 
+  /**
+   * Tests an editor can transition a needs_review node to published.
+   */
   public function testEditorCanModerateNeedsReview(): void {
     $editor = $this->drupalCreateUser([], NULL, FALSE, ['roles' => ['editor']]);
     $editor->addRole('editor');

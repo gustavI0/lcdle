@@ -1,0 +1,22 @@
+uuid: f21894f3-7269-41ed-9bab-e802e7cbe263
+langcode: fr
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: OKABMGjXUyeiy02qegnSws9tVXHg2ffZr8h6eFNbh-g
+id: node.field_cover_image
+field_name: field_cover_image
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

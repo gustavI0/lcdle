@@ -1,0 +1,37 @@
+uuid: f6b4e9fe-da37-4f8a-92e3-acbaba861d70
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - workflows.workflow.article_workflow
+  module:
+    - content_moderation
+    - node
+    - system
+    - taxonomy
+_core:
+  default_config_hash: UZ_28FjT9iKG_N_b0KHSFr1vlBM9cCb7obY0_XWuqR0
+id: editor
+label: Éditeur
+weight: 5
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'administer taxonomy'
+  - 'create article content'
+  - 'delete any article content'
+  - 'delete own article content'
+  - 'edit any article content'
+  - 'edit own article content'
+  - 'use article_workflow transition archive'
+  - 'use article_workflow transition create_new_draft'
+  - 'use article_workflow transition publish'
+  - 'use article_workflow transition reject'
+  - 'use article_workflow transition restore_to_draft'
+  - 'use article_workflow transition submit_for_review'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view own unpublished content'

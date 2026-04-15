@@ -1,0 +1,31 @@
+uuid: 9354a964-5c4e-4a52-a305-603037a470a4
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chronique
+    - node.type.article
+    - taxonomy.vocabulary.chroniques
+_core:
+  default_config_hash: pAWECiEjGAyO3HwGacrJYxDeHcZpIVg7EjnGA-bAw2U
+id: node.article.field_chronique
+field_name: field_chronique
+entity_type: node
+bundle: article
+label: Chronique
+description: "Série récurrente (optionnelle) dans laquelle s'inscrit cet article."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      chroniques: chroniques
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: chroniques
+field_type: entity_reference

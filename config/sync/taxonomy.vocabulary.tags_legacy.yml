@@ -1,0 +1,11 @@
+uuid: 91bed29f-21f5-456e-b2ed-509f8d5c0ea1
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iTpOn2LkRYR4GBkE6Ctd9cGc0wgC3Ay8OrBgnIC5ioA
+name: 'Tags (legacy WP)'
+vid: tags_legacy
+description: 'Quarantaine pour les tags importés depuis WordPress, en attente de triage manuel.'
+weight: 2
+new_revision: false

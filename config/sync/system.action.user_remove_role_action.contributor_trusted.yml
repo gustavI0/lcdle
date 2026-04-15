@@ -1,0 +1,14 @@
+uuid: 6a2195e5-ca08-43bb-b93b-0059141f70e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contributor_trusted
+  module:
+    - user
+id: user_remove_role_action.contributor_trusted
+label: 'Remove the Contributeur role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: contributor_trusted

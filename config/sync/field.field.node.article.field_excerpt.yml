@@ -1,0 +1,21 @@
+uuid: 9a1852e1-8802-4cfa-bf1d-1c09fe92a9aa
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_excerpt
+    - node.type.article
+_core:
+  default_config_hash: ZCXig8ux8F0YNixUQravOId2QXZWsOU9TJyffWUSEjw
+id: node.article.field_excerpt
+field_name: field_excerpt
+entity_type: node
+bundle: article
+label: Résumé
+description: 'Texte court pour les cards, la newsletter et les métadonnées OpenGraph.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

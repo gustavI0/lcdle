@@ -1,0 +1,27 @@
+uuid: a5d096ee-f2d5-4642-a0e9-ddde611d0a18
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - workflows.workflow.article_workflow
+  module:
+    - content_moderation
+    - node
+    - system
+_core:
+  default_config_hash: UJvZoO4QbeR-BnaYT9bCzHjmcjD_K90sIomUTtfxjZY
+id: contributor_trusted
+label: Contributeur
+weight: 4
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'create article content'
+  - 'delete own article content'
+  - 'edit own article content'
+  - 'use article_workflow transition create_new_draft'
+  - 'use article_workflow transition publish'
+  - 'use article_workflow transition submit_for_review'
+  - 'view own unpublished content'

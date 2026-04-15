@@ -1,0 +1,16 @@
+uuid: f5084a58-103e-46d1-bc75-5b9c1f47e299
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: L9-LAoPf2K0tmFFUB_LyEqitem5QBGf1FcIL0IgbD6c
+id: image
+label: Image
+description: 'Fichier image téléversé (cover, bannière, contenu illustré).'
+source: image
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_image
+field_map:
+  name: name

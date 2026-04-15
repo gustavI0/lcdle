@@ -1,0 +1,31 @@
+uuid: 82178f4a-53e7-4b13-968c-654d744d6fa1
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cover_image
+    - media.type.image
+    - node.type.article
+_core:
+  default_config_hash: AHiSfnSvxrGksbMa5ZDlwQUiiAptQURv4w6BE_iWBbA
+id: node.article.field_cover_image
+field_name: field_cover_image
+entity_type: node
+bundle: article
+label: 'Image de couverture'
+description: "Image affichée en tête d'article et dans les cards."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

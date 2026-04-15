@@ -1,0 +1,14 @@
+uuid: 2962be73-7bd6-40db-9f7c-3260f05fcd6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.contributor_new
+  module:
+    - user
+id: user_remove_role_action.contributor_new
+label: 'Remove the Contributeur (en probation) role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: contributor_new
