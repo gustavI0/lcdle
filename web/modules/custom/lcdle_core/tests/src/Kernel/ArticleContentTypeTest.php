@@ -27,6 +27,9 @@ final class ArticleContentTypeTest extends KernelTestBase {
     'workflows',
     'content_moderation',
     'path',
+    'path_alias',
+    'token',
+    'pathauto',
     'lcdle_core',
   ];
 

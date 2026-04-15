@@ -1,0 +1,23 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.article
+  module:
+    - node
+id: article
+label: 'Article (placeholder — author slug added in Phase 0C)'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  f19c00f0-6a15-4c9d-b89e-cbbfd5f65d9f:
+    id: 'entity_bundle:node'
+    bundles:
+      article: article
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f19c00f0-6a15-4c9d-b89e-cbbfd5f65d9f
+selection_logic: and
+weight: 0
+relationships: {  }

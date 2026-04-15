@@ -26,6 +26,9 @@ final class ArticleFieldsTest extends KernelTestBase {
     'workflows',
     'content_moderation',
     'path',
+    'path_alias',
+    'token',
+    'pathauto',
     'lcdle_core',
   ];
 

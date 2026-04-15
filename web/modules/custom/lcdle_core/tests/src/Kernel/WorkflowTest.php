@@ -13,7 +13,7 @@ use Drupal\workflows\Entity\Workflow;
 final class WorkflowTest extends KernelTestBase {
 
   protected static $modules = [
-    'system','user','node','text','field','taxonomy','file','image','media','media_library','workflows','content_moderation','views','path','lcdle_core',
+    'system','user','node','text','field','taxonomy','file','image','media','media_library','workflows','content_moderation','views','path','path_alias','token','pathauto','lcdle_core',
   ];
 
   protected function setUp(): void {
