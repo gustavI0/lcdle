@@ -1,0 +1,18 @@
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - lcdle_contributor
+  module:
+    - lcdle_core
+    - user
+id: contributor_profile
+label: 'Profil contributeur'
+description: 'Identité publique d''un contributeur : nom affiché, slug d''URL, bio, avatar, bannière, liens sociaux.'
+multiple: false
+registration: false
+roles:
+  - contributor_new
+  - contributor_trusted
+  - editor
