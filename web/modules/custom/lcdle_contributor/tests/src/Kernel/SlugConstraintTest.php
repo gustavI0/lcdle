@@ -28,6 +28,7 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
       'type' => 'contributor_profile',
       'uid' => $user_a->id(),
       'field_slug' => 'alice',
+      'field_display_name' => 'Alice',
     ]);
     $violations_a = $profile_a->validate();
     $this->assertCount(0, $violations_a, 'First alice slug is valid.');
@@ -37,6 +38,7 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
       'type' => 'contributor_profile',
       'uid' => $user_b->id(),
       'field_slug' => 'alice',
+      'field_display_name' => 'Bob',
     ]);
     $violations_b = $profile_b->validate();
     $this->assertGreaterThan(0, $violations_b->count(), 'Duplicate slug is rejected.');
@@ -52,6 +54,7 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
       'type' => 'contributor_profile',
       'uid' => $user->id(),
       'field_slug' => $slug,
+      'field_display_name' => 'Eve ' . $slug,
     ]);
     $violations = $profile->validate();
     $this->assertGreaterThan(
@@ -83,6 +86,7 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
       'type' => 'contributor_profile',
       'uid' => $user->id(),
       'field_slug' => 'a',
+      'field_display_name' => 'Shortie',
     ]);
     $violations = $profile->validate();
     $this->assertGreaterThan(0, $violations->count(), 'Too-short slug rejected.');
@@ -95,6 +99,7 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
       'type' => 'contributor_profile',
       'uid' => $user->id(),
       'field_slug' => 'Alice',
+      'field_display_name' => 'Caps',
     ]);
     $violations = $profile->validate();
     $this->assertGreaterThan(0, $violations->count(), 'Uppercase slug rejected by regex.');
