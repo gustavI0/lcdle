@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Module file for lcdle_contributor.
+ */
+
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+
+/**
+ * Implements hook_entity_bundle_field_info_alter().
+ */
+function lcdle_contributor_entity_bundle_field_info_alter(array &$fields, EntityTypeInterface $entity_type, string $bundle): void {
+  if ($entity_type->id() === 'profile' && $bundle === 'contributor_profile' && isset($fields['field_slug'])) {
+    $fields['field_slug']->addConstraint('UniqueField');
+  }
+}
