@@ -1,0 +1,12 @@
+lcdle_contributor.contributor_page:
+  path: '/contributor/{contributor_slug}'
+  defaults:
+    _controller: '\Drupal\lcdle_contributor\Controller\ContributorPageController::view'
+    _title_callback: '\Drupal\lcdle_contributor\Controller\ContributorPageController::title'
+  requirements:
+    _access: 'TRUE'
+    contributor_slug: '[a-z0-9][a-z0-9-]{1,58}[a-z0-9]'
+  options:
+    parameters:
+      contributor_slug:
+        type: 'lcdle_contributor_slug'

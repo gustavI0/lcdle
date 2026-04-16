@@ -1,0 +1,15 @@
+services:
+  lcdle_contributor.slug_converter:
+    class: Drupal\lcdle_contributor\ParamConverter\ContributorSlugConverter
+    arguments:
+      - '@entity_type.manager'
+    tags:
+      - { name: paramconverter }
+
+  lcdle_contributor.path_processor:
+    class: Drupal\lcdle_contributor\PathProcessor\ContributorSlugPathProcessor
+    arguments:
+      - '@entity_type.manager'
+    tags:
+      - { name: path_processor_inbound, priority: 200 }
+      - { name: path_processor_outbound, priority: 200 }
