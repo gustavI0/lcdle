@@ -1,0 +1,22 @@
+uuid: e9c91d81-36d6-46d5-9cad-933f68ad1de1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - lcdle_migrate
+  enforced:
+    module:
+      - lcdle_migrate
+_core:
+  default_config_hash: '-ebEE1-S0LcxgIVBuFcFcxPwhQhnixeLi8tkchNWEbY'
+id: lcdle_wp
+label: 'WordPress → Drupal (laculturedelecran.com)'
+description: 'Migrates all content from the WordPress SQL dump into the Drupal content model.'
+source_type: 'WordPress MySQL dump'
+module: lcdle_migrate
+shared_configuration:
+  source:
+    key: wp
+    database:
+      target: default
+      key: wp

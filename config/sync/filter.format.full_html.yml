@@ -1,0 +1,14 @@
+uuid: d4797134-5927-483c-9b98-63ddf6f01939
+langcode: en
+status: true
+dependencies: {  }
+name: 'HTML complet'
+format: full_html
+weight: 1
+filters:
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }

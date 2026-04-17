@@ -1,0 +1,17 @@
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - lcdle_migrate
+id: lcdle_wp
+label: 'WordPress → Drupal (laculturedelecran.com)'
+description: 'Migrates all content from the WordPress SQL dump into the Drupal content model.'
+source_type: 'WordPress MySQL dump'
+module: lcdle_migrate
+shared_configuration:
+  source:
+    key: wp
+    database:
+      target: default
+      key: wp

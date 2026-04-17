@@ -1,0 +1,11 @@
+name: 'LCDLE Migrate'
+type: module
+description: 'WordPress to Drupal migration for La Culture de l''Écran.'
+package: 'LCDLE'
+core_version_requirement: ^11
+dependencies:
+  - drupal:migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - lcdle_core:lcdle_core
+  - lcdle_contributor:lcdle_contributor

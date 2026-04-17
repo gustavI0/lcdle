@@ -5,10 +5,12 @@ module:
   admin_toolbar_tools: 0
   block: 0
   breakpoint: 0
+  ckeditor5: 0
   content_moderation: 0
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
+  editor: 0
   entity: 0
   field: 0
   file: 0
@@ -16,11 +18,15 @@ module:
   image: 0
   lcdle_contributor: 0
   lcdle_core: 0
+  lcdle_migrate: 0
   lcdle_newsletter: 0
   link: 0
   media: 0
   media_library: 0
   metatag: 0
+  migrate: 0
+  migrate_plus: 0
+  migrate_tools: 0
   node: 0
   options: 0
   page_cache: 0

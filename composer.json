@@ -23,6 +23,8 @@
         "drupal/core-recommended": "^11.3",
         "drupal/gin": "^4",
         "drupal/metatag": "^2",
+        "drupal/migrate_plus": "^6",
+        "drupal/migrate_tools": "^6",
         "drupal/pathauto": "^1",
         "drupal/profile": "^1.13",
         "drupal/redirect": "^1",
@@ -34,6 +36,10 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "config": {
+        "audit": {
+            "abandoned": "ignore",
+            "block-insecure": false
+        },
         "allow-plugins": {
             "composer/installers": true,
             "drupal/core-composer-scaffold": true,
