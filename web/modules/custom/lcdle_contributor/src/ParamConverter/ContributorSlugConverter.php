@@ -20,6 +20,12 @@ final class ContributorSlugConverter implements ParamConverterInterface {
   /**
    * {@inheritdoc}
    *
+   * @param mixed $value
+   *   The raw value from the URL.
+   * @param mixed $definition
+   *   The parameter definition from the route.
+   * @param string $name
+   *   The name of the parameter.
    * @param array<string, mixed> $defaults
    *   The route defaults.
    */

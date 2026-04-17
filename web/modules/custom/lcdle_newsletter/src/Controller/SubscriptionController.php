@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Drupal\lcdle_newsletter\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\lcdle_newsletter\Entity\NewsletterSubscriber;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
@@ -66,7 +67,7 @@ final class SubscriptionController extends ControllerBase {
    * @return \Drupal\lcdle_newsletter\Entity\NewsletterSubscriber|null
    *   The subscriber, or NULL if not found.
    */
-  private function findByToken(string $token): mixed {
+  private function findByToken(string $token): ?NewsletterSubscriber {
     $storage = $this->entityTypeManager()->getStorage('newsletter_subscriber');
     $ids = $storage->getQuery()
       ->accessCheck(FALSE)
@@ -76,7 +77,8 @@ final class SubscriptionController extends ControllerBase {
     if (empty($ids)) {
       return NULL;
     }
-    return $storage->load(reset($ids));
+    $entity = $storage->load(reset($ids));
+    return $entity instanceof NewsletterSubscriber ? $entity : NULL;
   }
 
 }

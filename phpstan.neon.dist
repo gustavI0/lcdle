@@ -10,7 +10,10 @@ parameters:
         - vendor/*
     drupal:
         drupal_root: web
-    ignoreErrors: []
+    ignoreErrors:
+        -
+            message: '#has parameter \$fields with no value type specified in iterable type array#'
+            path: web/modules/custom/lcdle_contributor/lcdle_contributor.module
     reportUnmatchedIgnoredErrors: true
 
 # Note: phpstan-drupal and phpstan-deprecation-rules are auto-loaded via

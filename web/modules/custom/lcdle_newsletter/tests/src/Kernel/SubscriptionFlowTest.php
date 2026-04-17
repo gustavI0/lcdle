@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\lcdle_newsletter\Kernel;
 
+use Drupal\lcdle_newsletter\Entity\NewsletterSubscriber;
+
 /**
  * Tests the subscription confirmation and unsubscribe flow.
  *
@@ -33,6 +35,7 @@ final class SubscriptionFlowTest extends LcdleNewsletterKernelTestBase {
     $loaded->save();
 
     $reloaded = $storage->load($loaded->id());
+    $this->assertInstanceOf(NewsletterSubscriber::class, $reloaded);
     $this->assertSame('active', $reloaded->get('status_value')->value);
   }
 
@@ -51,10 +54,12 @@ final class SubscriptionFlowTest extends LcdleNewsletterKernelTestBase {
     $subscriber->save();
 
     $loaded = $this->findByToken($token);
+    $this->assertNotNull($loaded);
     $loaded->set('status_value', 'unsubscribed');
     $loaded->save();
 
     $reloaded = $storage->load($loaded->id());
+    $this->assertInstanceOf(NewsletterSubscriber::class, $reloaded);
     $this->assertSame('unsubscribed', $reloaded->get('status_value')->value);
   }
 
@@ -95,7 +100,7 @@ final class SubscriptionFlowTest extends LcdleNewsletterKernelTestBase {
    * @return \Drupal\lcdle_newsletter\Entity\NewsletterSubscriber|null
    *   The subscriber, or NULL.
    */
-  private function findByToken(string $token): mixed {
+  private function findByToken(string $token): ?NewsletterSubscriber {
     $storage = \Drupal::entityTypeManager()->getStorage('newsletter_subscriber');
     $ids = $storage->getQuery()
       ->accessCheck(FALSE)
@@ -105,7 +110,8 @@ final class SubscriptionFlowTest extends LcdleNewsletterKernelTestBase {
     if (empty($ids)) {
       return NULL;
     }
-    return $storage->load(reset($ids));
+    $entity = $storage->load(reset($ids));
+    return $entity instanceof NewsletterSubscriber ? $entity : NULL;
   }
 
 }

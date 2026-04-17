@@ -57,11 +57,11 @@ class SubscribeForm extends FormBase {
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    *   The service container.
    *
-   * @return static
+   * @return self
    *   A new instance of this form.
    */
-  public static function create(ContainerInterface $container): static {
-    return new static(
+  public static function create(ContainerInterface $container): self {
+    return new self(
       $container->get('entity_type.manager'),
       $container->get('lcdle_newsletter.token_generator'),
     );
@@ -127,7 +127,7 @@ class SubscribeForm extends FormBase {
       ->loadByProperties(['email' => $email]);
 
     if (!empty($existing)) {
-      // Silent rejection: show the same success message as for a new subscriber.
+      // Silent rejection: same success message as for a new subscriber.
       $this->messenger()->addStatus(
         $this->t('Merci ! Un e-mail de confirmation vous a été envoyé.')
       );

@@ -4,6 +4,7 @@ lcdle_newsletter.subscribe:
     _form: '\Drupal\lcdle_newsletter\Form\SubscribeForm'
     _title: 'Newsletter'
   requirements:
+    # Public subscription form — no authentication required.
     _access: 'TRUE'
 
 lcdle_newsletter.confirm:
@@ -12,6 +13,7 @@ lcdle_newsletter.confirm:
     _controller: '\Drupal\lcdle_newsletter\Controller\SubscriptionController::confirm'
     _title: 'Confirmation'
   requirements:
+    # Token in the URL acts as the access credential; no login required.
     _access: 'TRUE'
     token: '[0-9a-f]{64}'
 
@@ -21,5 +23,6 @@ lcdle_newsletter.unsubscribe:
     _controller: '\Drupal\lcdle_newsletter\Controller\SubscriptionController::unsubscribe'
     _title: 'Désabonnement'
   requirements:
+    # Token in the URL acts as the access credential; no login required.
     _access: 'TRUE'
     token: '[0-9a-f]{64}'

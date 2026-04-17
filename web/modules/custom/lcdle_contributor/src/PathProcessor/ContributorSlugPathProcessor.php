@@ -62,8 +62,14 @@ final class ContributorSlugPathProcessor implements InboundPathProcessorInterfac
   /**
    * {@inheritdoc}
    *
+   * @param string $path
+   *   The outbound path to process.
    * @param array<string, mixed> $options
    *   Path options passed by reference.
+   * @param \Symfony\Component\HttpFoundation\Request|null $request
+   *   The current request, or NULL.
+   * @param \Drupal\Core\Render\BubbleableMetadata|null $bubbleable_metadata
+   *   Bubbleable metadata, or NULL.
    */
   public function processOutbound($path, &$options = [], ?Request $request = NULL, ?BubbleableMetadata $bubbleable_metadata = NULL) {
     if (str_starts_with($path, self::INTERNAL_PREFIX)) {

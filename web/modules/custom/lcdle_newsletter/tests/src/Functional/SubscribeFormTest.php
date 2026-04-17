@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Drupal\Tests\lcdle_newsletter\Functional;
 
+use Drupal\lcdle_newsletter\Entity\NewsletterSubscriber;
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -54,13 +55,14 @@ class SubscribeFormTest extends BrowserTestBase {
     $this->assertCount(1, $subscribers, 'One subscriber should have been created.');
 
     $subscriber = reset($subscribers);
+    $this->assertInstanceOf(NewsletterSubscriber::class, $subscriber);
     $this->assertEquals('pending', $subscriber->get('status_value')->value);
     $this->assertNotEmpty($subscriber->get('token')->value);
     $this->assertEquals('form', $subscriber->get('source')->value);
   }
 
   /**
-   * Tests that a duplicate email submission does not create a second subscriber.
+   * Tests that a duplicate email does not create a second subscriber.
    */
   public function testDuplicateEmailRejected(): void {
     // First submission.
