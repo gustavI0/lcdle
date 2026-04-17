@@ -14,6 +14,9 @@ use Drupal\KernelTests\KernelTestBase;
  */
 abstract class LcdleContributorKernelTestBase extends KernelTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'system',
     'user',
@@ -39,6 +42,9 @@ abstract class LcdleContributorKernelTestBase extends KernelTestBase {
     'lcdle_contributor',
   ];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     $this->installEntitySchema('user');

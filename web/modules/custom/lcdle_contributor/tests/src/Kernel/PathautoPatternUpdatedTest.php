@@ -7,10 +7,15 @@ namespace Drupal\Tests\lcdle_contributor\Kernel;
 use Drupal\pathauto\Entity\PathautoPattern;
 
 /**
+ * Tests the pathauto article pattern is updated to use the author slug.
+ *
  * @group lcdle_contributor
  */
 final class PathautoPatternUpdatedTest extends LcdleContributorKernelTestBase {
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp(): void {
     parent::setUp();
     // hook_install() is not invoked by installConfig(). Call it explicitly so
@@ -20,6 +25,9 @@ final class PathautoPatternUpdatedTest extends LcdleContributorKernelTestBase {
     lcdle_contributor_install();
   }
 
+  /**
+   * Tests the article pathauto pattern references the author's slug.
+   */
   public function testArticlePatternUsesAuthorSlug(): void {
     $pattern = PathautoPattern::load('article');
     $this->assertNotNull($pattern);

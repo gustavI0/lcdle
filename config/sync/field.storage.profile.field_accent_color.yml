@@ -1,0 +1,23 @@
+uuid: 36bd73e1-110f-4018-9add-faa8370f44e8
+langcode: fr
+status: true
+dependencies:
+  module:
+    - profile
+_core:
+  default_config_hash: Tjw_Vm2AIsTocOs6a65rvuHDqT3U1edwYIqlvvw7a-I
+id: profile.field_accent_color
+field_name: field_accent_color
+entity_type: profile
+type: string
+settings:
+  max_length: 7
+  is_ascii: true
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

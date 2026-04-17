@@ -8,10 +8,16 @@ use Drupal\Core\Controller\ControllerBase;
 use Drupal\profile\Entity\ProfileInterface;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+/**
+ * Controller for public contributor profile pages.
+ */
 final class ContributorPageController extends ControllerBase {
 
   /**
    * Page callback: render the profile + published articles of a contributor.
+   *
+   * @return array<string, mixed>
+   *   Render array for the contributor page.
    */
   public function view(?ProfileInterface $contributor_slug = NULL): array {
     if ($contributor_slug === NULL) {
@@ -50,7 +56,10 @@ final class ContributorPageController extends ControllerBase {
   }
 
   /**
+   * Renders published articles for a given author UID.
+   *
    * @return array<string, mixed>
+   *   Render array of published articles.
    */
   private function renderArticlesByAuthor(int $uid): array {
     $storage = $this->entityTypeManager()->getStorage('node');

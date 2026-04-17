@@ -4,6 +4,7 @@ lcdle_contributor.contributor_page:
     _controller: '\Drupal\lcdle_contributor\Controller\ContributorPageController::view'
     _title_callback: '\Drupal\lcdle_contributor\Controller\ContributorPageController::title'
   requirements:
+    # Public contributor profile pages are intentionally open to all visitors.
     _access: 'TRUE'
     contributor_slug: '[a-z0-9][a-z0-9-]{1,58}[a-z0-9]'
   options:

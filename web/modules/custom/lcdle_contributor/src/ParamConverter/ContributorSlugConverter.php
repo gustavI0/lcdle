@@ -17,6 +17,12 @@ final class ContributorSlugConverter implements ParamConverterInterface {
     private readonly EntityTypeManagerInterface $entityTypeManager,
   ) {}
 
+  /**
+   * {@inheritdoc}
+   *
+   * @param array<string, mixed> $defaults
+   *   The route defaults.
+   */
   public function convert($value, $definition, $name, array $defaults): mixed {
     if (!is_string($value) || $value === '') {
       return NULL;
@@ -38,6 +44,9 @@ final class ContributorSlugConverter implements ParamConverterInterface {
     return $storage->load(reset($ids));
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function applies($definition, $name, Route $route): bool {
     return ($definition['type'] ?? NULL) === 'lcdle_contributor_slug';
   }

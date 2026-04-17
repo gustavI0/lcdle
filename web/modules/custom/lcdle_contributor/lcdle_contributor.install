@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Install and uninstall functions for lcdle_contributor.
  */
+
+declare(strict_types=1);
 
 use Drupal\Component\Serialization\Yaml;
 

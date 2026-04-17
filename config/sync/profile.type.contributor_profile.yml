@@ -1,0 +1,23 @@
+uuid: 5834599c-b639-47c9-b8e8-956151dcbcb3
+langcode: fr
+status: true
+dependencies:
+  enforced:
+    module:
+      - lcdle_contributor
+  module:
+    - lcdle_core
+    - user
+_core:
+  default_config_hash: yCjLn-4v9XaFHdBhsyHSLIdNiwCsZk3XBsD2acGqDKQ
+id: contributor_profile
+label: 'Profil contributeur'
+display_label: null
+multiple: false
+registration: false
+roles:
+  - contributor_new
+  - contributor_trusted
+  - editor
+allow_revisions: false
+new_revision: false

@@ -7,16 +7,24 @@ namespace Drupal\Tests\lcdle_contributor\Kernel;
 use Drupal\profile\Entity\ProfileType;
 
 /**
+ * Tests the contributor_profile profile type is installed correctly.
+ *
  * @group lcdle_contributor
  */
 final class ProfileTypeInstallTest extends LcdleContributorKernelTestBase {
 
+  /**
+   * Tests the contributor_profile type exists and has the correct label.
+   */
   public function testContributorProfileTypeExists(): void {
     $type = ProfileType::load('contributor_profile');
     $this->assertNotNull($type, 'Profile type contributor_profile exists.');
     $this->assertSame('Profil contributeur', $type->label());
   }
 
+  /**
+   * Tests the contributor_profile type does not allow multiple profiles.
+   */
   public function testContributorProfileTypeIsMultiple(): void {
     $type = ProfileType::load('contributor_profile');
     $this->assertFalse(
@@ -25,6 +33,9 @@ final class ProfileTypeInstallTest extends LcdleContributorKernelTestBase {
     );
   }
 
+  /**
+   * Tests the contributor_profile type is bound to editorial roles.
+   */
   public function testContributorProfileTypeIsRoleBound(): void {
     $type = ProfileType::load('contributor_profile');
     $roles = $type->getRoles();
@@ -37,6 +48,8 @@ final class ProfileTypeInstallTest extends LcdleContributorKernelTestBase {
   }
 
   /**
+   * Tests the contributor_profile has the expected field with the correct type.
+   *
    * @dataProvider provideExpectedFields
    */
   public function testContributorProfileHasField(string $fieldName, string $expectedType, int $expectedCardinality): void {
@@ -49,6 +62,12 @@ final class ProfileTypeInstallTest extends LcdleContributorKernelTestBase {
     );
   }
 
+  /**
+   * Provides expected field names, types, and cardinalities.
+   *
+   * @return array<string, array{string, string, int}>
+   *   Keyed by field name with field type and cardinality.
+   */
   public static function provideExpectedFields(): array {
     return [
       'field_display_name' => ['field_display_name', 'string', 1],

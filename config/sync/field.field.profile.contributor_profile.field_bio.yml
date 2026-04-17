@@ -1,0 +1,24 @@
+uuid: d8b21574-1776-4dc0-9d76-63118d48a965
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_bio
+    - profile.type.contributor_profile
+  module:
+    - text
+_core:
+  default_config_hash: 9VKnQ0LoDG_KLxdlebaRXYCekd6BVJRTZfe-R42Tboo
+id: profile.contributor_profile.field_bio
+field_name: field_bio
+entity_type: profile
+bundle: contributor_profile
+label: Bio
+description: 'Présentation publique du contributeur (plusieurs paragraphes possibles).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

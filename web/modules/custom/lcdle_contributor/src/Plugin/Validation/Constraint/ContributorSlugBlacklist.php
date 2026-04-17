@@ -18,9 +18,16 @@ use Symfony\Component\Validator\Constraint as SymfonyConstraint;
 )]
 final class ContributorSlugBlacklist extends SymfonyConstraint {
 
+  /**
+   * Violation message when a reserved slug is used.
+   *
+   * @var string
+   */
   public string $message = "Le slug « @slug » est réservé et ne peut pas être utilisé.";
 
   /**
+   * List of reserved URL slugs that cannot be used as contributor identifiers.
+   *
    * @var list<string>
    */
   public const RESERVED = [

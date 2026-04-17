@@ -8,16 +8,24 @@ use Drupal\profile\Entity\Profile;
 use Drupal\user\Entity\User;
 
 /**
+ * Tests slug field constraints on the contributor_profile profile type.
+ *
  * @group lcdle_contributor
  */
 final class SlugConstraintTest extends LcdleContributorKernelTestBase {
 
+  /**
+   * Tests the field_slug field exists and is required.
+   */
   public function testFieldSlugExists(): void {
     $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions('profile', 'contributor_profile');
     $this->assertArrayHasKey('field_slug', $fields);
     $this->assertTrue($fields['field_slug']->isRequired());
   }
 
+  /**
+   * Tests that two profiles cannot share the same slug.
+   */
   public function testSlugMustBeUnique(): void {
     $user_a = User::create(['name' => 'alice', 'mail' => 'alice@example.test', 'status' => 1]);
     $user_a->save();
@@ -45,6 +53,8 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
   }
 
   /**
+   * Tests that reserved slugs from the blacklist are rejected.
+   *
    * @dataProvider provideBlacklistedSlugs
    */
   public function testSlugBlacklistRejectsReserved(string $slug): void {
@@ -64,6 +74,12 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
     );
   }
 
+  /**
+   * Provides reserved slug values that must be rejected.
+   *
+   * @return array<int, array{string}>
+   *   List of reserved slug strings.
+   */
   public static function provideBlacklistedSlugs(): array {
     return [
       ['admin'],
@@ -79,6 +95,9 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
     ];
   }
 
+  /**
+   * Tests that a slug shorter than the minimum length is rejected.
+   */
   public function testShortSlugIsRejected(): void {
     $user = User::create(['name' => 'shortie', 'mail' => 'shortie@example.test', 'status' => 1]);
     $user->save();
@@ -92,6 +111,9 @@ final class SlugConstraintTest extends LcdleContributorKernelTestBase {
     $this->assertGreaterThan(0, $violations->count(), 'Too-short slug rejected.');
   }
 
+  /**
+   * Tests that a slug with uppercase letters is rejected.
+   */
   public function testUppercaseSlugIsRejected(): void {
     $user = User::create(['name' => 'caps', 'mail' => 'caps@example.test', 'status' => 1]);
     $user->save();

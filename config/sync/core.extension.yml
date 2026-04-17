@@ -9,10 +9,12 @@ module:
   datetime: 0
   dblog: 0
   dynamic_page_cache: 0
+  entity: 0
   field: 0
   file: 0
   filter: 0
   image: 0
+  lcdle_contributor: 0
   lcdle_core: 0
   link: 0
   media: 0
@@ -23,6 +25,7 @@ module:
   path: 0
   path_alias: 0
   pgsql: 0
+  profile: 0
   redirect: 0
   system: 0
   taxonomy: 0

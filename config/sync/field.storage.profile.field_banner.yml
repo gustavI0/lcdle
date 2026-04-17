@@ -1,16 +1,16 @@
-uuid: 0dc1e9f6-20a2-44a6-aba1-ab00aa81f900
+uuid: ea4d1ec2-783f-4618-b44a-08e8a051a8d3
 langcode: fr
 status: true
 dependencies:
   module:
     - file
     - image
-    - media
+    - profile
 _core:
-  default_config_hash: Tc-6O7ZyjuEd0vk-FnytI7LiJUHqXQa-zW3nSbPC5o8
-id: media.field_media_image
-field_name: field_media_image
-entity_type: media
+  default_config_hash: PlhroqCrYadYiKRZQsn27EQu_CLQj6yyyB7YjpRuIc8
+id: profile.field_banner
+field_name: field_banner
+entity_type: profile
 type: image
 settings:
   target_type: file

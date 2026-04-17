@@ -1,0 +1,23 @@
+uuid: f391f1aa-2bac-4728-9723-6c9472227f52
+langcode: fr
+status: true
+dependencies:
+  module:
+    - profile
+_core:
+  default_config_hash: 9C-83UWN7ZGvwVLK7J6X7DXYHTTZ2Uo1B0XrZuPaHRM
+id: profile.field_display_name
+field_name: field_display_name
+entity_type: profile
+type: string
+settings:
+  max_length: 120
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

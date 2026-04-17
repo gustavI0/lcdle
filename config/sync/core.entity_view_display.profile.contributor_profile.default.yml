@@ -1,0 +1,77 @@
+uuid: b913f490-8989-407c-b9fc-34ba0e3f5742
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.profile.contributor_profile.field_accent_color
+    - field.field.profile.contributor_profile.field_avatar
+    - field.field.profile.contributor_profile.field_banner
+    - field.field.profile.contributor_profile.field_bio
+    - field.field.profile.contributor_profile.field_display_name
+    - field.field.profile.contributor_profile.field_slug
+    - field.field.profile.contributor_profile.field_social_links
+    - image.style.large
+    - profile.type.contributor_profile
+  module:
+    - image
+    - link
+    - text
+_core:
+  default_config_hash: aKqbYdViOCBBpZ4fNoAwEoiMwYip7wD9a5FllW1nXhQ
+id: profile.contributor_profile.default
+targetEntityType: profile
+bundle: contributor_profile
+mode: default
+content:
+  field_avatar:
+    type: image
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    weight: 1
+    region: content
+    third_party_settings: {  }
+  field_banner:
+    type: image
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    weight: 0
+    region: content
+    third_party_settings: {  }
+  field_bio:
+    type: text_default
+    label: hidden
+    settings: {  }
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  field_display_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  field_social_links:
+    type: link
+    label: visually_hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: me
+      target: _blank
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_accent_color: true
+  field_slug: true

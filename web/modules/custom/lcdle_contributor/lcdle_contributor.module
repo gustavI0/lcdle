@@ -1,11 +1,11 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @file
  * Module file for lcdle_contributor.
  */
+
+declare(strict_types=1);
 
 use Drupal\Core\Entity\EntityTypeInterface;
 
@@ -21,6 +21,13 @@ use Drupal\Core\Entity\EntityTypeInterface;
  *   be registered via addPropertyConstraints() to receive a plain string.
  * - ContributorSlugBlacklist runs on the FieldItemList; its validator
  *   extracts the string value internally.
+ *
+ * @param array<string, \Drupal\Core\Field\FieldConfigBase> $fields
+ *   The field definitions, keyed by field name.
+ * @param \Drupal\Core\Entity\EntityTypeInterface $entity_type
+ *   The entity type definition.
+ * @param string $bundle
+ *   The bundle.
  */
 function lcdle_contributor_entity_bundle_field_info_alter(array &$fields, EntityTypeInterface $entity_type, string $bundle): void {
   if ($entity_type->id() === 'profile' && $bundle === 'contributor_profile' && isset($fields['field_slug'])) {

@@ -60,6 +60,7 @@ final class VocabulariesInstallTest extends KernelTestBase {
    * Provides vocabulary IDs to test.
    *
    * @return array<string, array{string}>
+   *   Keyed by vocabulary machine name.
    */
   public static function provideVocabularyIds(): array {
     return [

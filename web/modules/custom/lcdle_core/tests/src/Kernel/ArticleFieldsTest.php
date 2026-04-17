@@ -64,6 +64,7 @@ final class ArticleFieldsTest extends KernelTestBase {
    * Provides expected field names and types for the article content type.
    *
    * @return array<string, array{string, string}>
+   *   Keyed by description with field name and type pairs.
    */
   public static function provideExpectedFields(): array {
     return [

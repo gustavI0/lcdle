@@ -11,13 +11,13 @@ use Drupal\Core\Render\BubbleableMetadata;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Rewrites /{slug} → /contributor/{slug} inbound so Drupal's 2-segment
- * route matching works. Reverses on outbound so users see /{slug} in URLs.
+ * Rewrites /{slug} to /contributor/{slug} inbound for Drupal route matching.
  *
- * Drupal's RouteProvider::getCandidateOutlines() only generates the static
- * candidate for single-segment paths (hardcoded $masks = [1]), so a
- * wildcard route like /{contributor_slug} never matches. This processor
- * bridges the gap by adding the /contributor prefix internally.
+ * Reverses on outbound so users see /{slug} in URLs. Drupal's
+ * RouteProvider::getCandidateOutlines() only generates the static candidate
+ * for single-segment paths (hardcoded $masks = [1]), so a wildcard route
+ * like /{contributor_slug} never matches. This processor bridges the gap by
+ * adding the /contributor prefix internally.
  */
 final class ContributorSlugPathProcessor implements InboundPathProcessorInterface, OutboundPathProcessorInterface {
 
@@ -29,6 +29,9 @@ final class ContributorSlugPathProcessor implements InboundPathProcessorInterfac
     private readonly EntityTypeManagerInterface $entityTypeManager,
   ) {}
 
+  /**
+   * {@inheritdoc}
+   */
   public function processInbound($path, Request $request) {
     $parts = explode('/', ltrim($path, '/'));
     if (count($parts) !== 1) {
@@ -56,6 +59,12 @@ final class ContributorSlugPathProcessor implements InboundPathProcessorInterfac
     return $path;
   }
 
+  /**
+   * {@inheritdoc}
+   *
+   * @param array<string, mixed> $options
+   *   Path options passed by reference.
+   */
   public function processOutbound($path, &$options = [], ?Request $request = NULL, ?BubbleableMetadata $bubbleable_metadata = NULL) {
     if (str_starts_with($path, self::INTERNAL_PREFIX)) {
       $slug = substr($path, strlen(self::INTERNAL_PREFIX));

@@ -1,0 +1,21 @@
+uuid: 82cedf53-a65a-4ef9-aa8b-e9d8006f9e5b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - link
+    - profile
+_core:
+  default_config_hash: 7duyWDWiVLkRVXduk6DyA4CBNvF_tcBG2hz7RiVMk7c
+id: profile.field_social_links
+field_name: field_social_links
+entity_type: profile
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: -1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

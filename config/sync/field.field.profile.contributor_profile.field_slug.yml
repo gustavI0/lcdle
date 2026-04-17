@@ -1,0 +1,21 @@
+uuid: 789b343f-4d8a-4c55-abf8-9697be13da32
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_slug
+    - profile.type.contributor_profile
+_core:
+  default_config_hash: wF0r9IpiZLGyTf57N79dlu1tBUA6erEig9alsUR8m3Q
+id: profile.contributor_profile.field_slug
+field_name: field_slug
+entity_type: profile
+bundle: contributor_profile
+label: Slug
+description: "Identifiant d'URL unique — /{slug}. Lettres minuscules, chiffres et tirets uniquement. Réservé à certains mots (voir blacklist)."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

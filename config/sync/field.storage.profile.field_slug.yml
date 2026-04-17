@@ -1,0 +1,23 @@
+uuid: 83f5e0b8-f5d2-411b-99cd-164afa6f52d9
+langcode: fr
+status: true
+dependencies:
+  module:
+    - profile
+_core:
+  default_config_hash: PpLcWTBG3NJMgyDqzbB_obIMbhJpWyYHO1P-pUjmOFw
+id: profile.field_slug
+field_name: field_slug
+entity_type: profile
+type: string
+settings:
+  max_length: 60
+  is_ascii: true
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: false
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

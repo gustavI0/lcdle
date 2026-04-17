@@ -1,4 +1,4 @@
-uuid: 6e118ca0-29d2-4f88-bf6c-d80c05da97f0
+uuid: 0948fa86-4a84-4cd0-bf68-400beebb1c6a
 langcode: fr
 status: true
 dependencies:
@@ -7,18 +7,18 @@ dependencies:
 _core:
   default_config_hash: XtI66FQjVqxLYHv2gWEz7z3B3AJXK_VCxPxBgEUwy4c
 id: article
-label: 'Article (placeholder — author slug added in Phase 0C)'
+label: 'Article — /{author-slug}/{article-title}'
 type: 'canonical_entities:node'
-pattern: '[node:title]'
+pattern: '[node:author:contributor_profile:field_slug]/[node:title]'
 selection_criteria:
   f19c00f0-6a15-4c9d-b89e-cbbfd5f65d9f:
     id: 'entity_bundle:node'
-    bundles:
-      article: article
     negate: false
+    uuid: f19c00f0-6a15-4c9d-b89e-cbbfd5f65d9f
     context_mapping:
       node: node
-    uuid: f19c00f0-6a15-4c9d-b89e-cbbfd5f65d9f
+    bundles:
+      article: article
 selection_logic: and
 weight: 0
 relationships: {  }
