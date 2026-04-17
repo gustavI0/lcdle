@@ -1,0 +1,20 @@
+services:
+  wp-db:
+    container_name: ddev-${DDEV_SITENAME}-wp-db
+    image: mysql:8.0
+    restart: "no"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wp
+      MYSQL_PASSWORD: wp
+    ports:
+      - "3307:3306"
+    volumes:
+      - wp-db-data:/var/lib/mysql
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+
+volumes:
+  wp-db-data:
