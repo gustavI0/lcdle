@@ -1,0 +1,38 @@
+id: wp_users
+label: 'WP Users → Drupal Users'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      u.ID,
+      u.user_login,
+      u.user_email,
+      u.user_nicename,
+      u.display_name,
+      u.user_registered
+    FROM 6Q3sMyXEg_users u
+    WHERE u.ID > 0
+  ids:
+    ID:
+      type: integer
+process:
+  name: user_login
+  mail: user_email
+  init: user_email
+  status:
+    plugin: default_value
+    default_value: 1
+  created:
+    plugin: format_date
+    source: user_registered
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+  roles:
+    plugin: default_value
+    default_value:
+      - contributor_trusted
+destination:
+  plugin: 'entity:user'
+migration_dependencies: {}

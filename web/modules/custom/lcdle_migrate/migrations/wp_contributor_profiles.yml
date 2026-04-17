@@ -1,0 +1,39 @@
+id: wp_contributor_profiles
+label: 'WP Users → Contributor Profiles'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      u.ID,
+      u.user_nicename,
+      u.display_name,
+      (SELECT meta_value FROM 6Q3sMyXEg_usermeta WHERE user_id = u.ID AND meta_key = 'description' LIMIT 1) AS bio
+    FROM 6Q3sMyXEg_users u
+    WHERE u.ID > 0
+  ids:
+    ID:
+      type: integer
+process:
+  uid:
+    plugin: migration_lookup
+    migration: wp_users
+    source: ID
+  type:
+    plugin: default_value
+    default_value: contributor_profile
+  field_slug: user_nicename
+  field_display_name: display_name
+  field_bio/value: bio
+  field_bio/format:
+    plugin: default_value
+    default_value: plain_text
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:profile'
+migration_dependencies:
+  required:
+    - wp_users
