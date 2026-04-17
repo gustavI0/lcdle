@@ -1,0 +1,4 @@
+administer newsletter subscribers:
+  title: 'Administrer les abonnés newsletter'
+  description: 'Voir, modifier et supprimer les abonnés newsletter.'
+  restrict access: true
