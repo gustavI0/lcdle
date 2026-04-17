@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+/**
+ * @file
+ * Install and uninstall functions for lcdle_contributor.
+ */
+
+use Drupal\Component\Serialization\Yaml;
+
+/**
+ * Implements hook_install().
+ *
+ * Replaces the placeholder pathauto.pattern.article from lcdle_core with the
+ * author-slug-aware version. Uses config/optional as the source and updates
+ * the existing entity in-place (config/install would throw
+ * PreExistingConfigException).
+ *
+ * The token path [node:author:contributor_profile:field_slug] works because
+ * the profile module registers a user token named after each profile type id
+ * (here: contributor_profile) via hook_token_info_alter().
+ */
+function lcdle_contributor_install(): void {
+  $module_path = \Drupal::service('extension.list.module')->getPath('lcdle_contributor');
+  $yaml_path = $module_path . '/config/optional/pathauto.pattern.article.yml';
+
+  if (!file_exists($yaml_path)) {
+    return;
+  }
+
+  $data = Yaml::decode(file_get_contents($yaml_path));
+  $storage = \Drupal::entityTypeManager()->getStorage('pathauto_pattern');
+  $existing = $storage->load('article');
+
+  if ($existing !== NULL) {
+    $existing->set('pattern', $data['pattern']);
+    $existing->set('label', $data['label']);
+    $existing->save();
+  }
+  else {
+    $storage->create($data)->save();
+  }
+}
