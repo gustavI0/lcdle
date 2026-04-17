@@ -1,0 +1,25 @@
+lcdle_newsletter.subscribe:
+  path: '/newsletter'
+  defaults:
+    _form: '\Drupal\lcdle_newsletter\Form\SubscribeForm'
+    _title: 'Newsletter'
+  requirements:
+    _access: 'TRUE'
+
+lcdle_newsletter.confirm:
+  path: '/newsletter/confirm/{token}'
+  defaults:
+    _controller: '\Drupal\lcdle_newsletter\Controller\SubscriptionController::confirm'
+    _title: 'Confirmation'
+  requirements:
+    _access: 'TRUE'
+    token: '[0-9a-f]{64}'
+
+lcdle_newsletter.unsubscribe:
+  path: '/newsletter/unsubscribe/{token}'
+  defaults:
+    _controller: '\Drupal\lcdle_newsletter\Controller\SubscriptionController::unsubscribe'
+    _title: 'Désabonnement'
+  requirements:
+    _access: 'TRUE'
+    token: '[0-9a-f]{64}'

@@ -1,0 +1,3 @@
+services:
+  lcdle_newsletter.token_generator:
+    class: Drupal\lcdle_newsletter\Service\TokenGenerator
