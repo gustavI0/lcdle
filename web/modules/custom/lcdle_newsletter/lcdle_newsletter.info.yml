@@ -1,0 +1,9 @@
+name: 'LCDLE Newsletter'
+type: module
+description: 'Newsletter subscriber management — double opt-in, token-based unsubscribe, admin listing.'
+package: 'LCDLE'
+core_version_requirement: ^11
+dependencies:
+  - drupal:user
+  - drupal:views
+  - drupal:options
