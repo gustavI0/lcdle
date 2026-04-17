@@ -1,0 +1,43 @@
+id: wp_media_entities
+label: 'WP Attachments → Drupal Media (image)'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      p.ID,
+      p.post_title,
+      (SELECT meta_value FROM 6Q3sMyXEg_postmeta WHERE post_id = p.ID AND meta_key = '_wp_attachment_image_alt' LIMIT 1) AS alt_text
+    FROM 6Q3sMyXEg_posts p
+    WHERE p.post_type = 'attachment'
+      AND p.post_mime_type LIKE 'image/%'
+      AND (SELECT meta_value FROM 6Q3sMyXEg_postmeta WHERE post_id = p.ID AND meta_key = '_wp_attached_file' LIMIT 1) IS NOT NULL
+  ids:
+    ID:
+      type: integer
+process:
+  bundle:
+    plugin: default_value
+    default_value: image
+  name: post_title
+  field_media_image/target_id:
+    plugin: migration_lookup
+    migration: wp_media_files
+    source: ID
+  field_media_image/alt:
+    - plugin: null_coalesce
+      source:
+        - alt_text
+        - post_title
+    - plugin: substr
+      start: 0
+      length: 512
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:media'
+migration_dependencies:
+  required:
+    - wp_media_files

@@ -1,0 +1,30 @@
+id: wp_media_files
+label: 'WP Attachments → Drupal File Entities'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      p.ID,
+      p.post_title,
+      p.post_mime_type,
+      (SELECT meta_value FROM 6Q3sMyXEg_postmeta WHERE post_id = p.ID AND meta_key = '_wp_attached_file' LIMIT 1) AS file_path,
+      CONCAT('public://migrated/', (SELECT meta_value FROM 6Q3sMyXEg_postmeta WHERE post_id = p.ID AND meta_key = '_wp_attached_file' LIMIT 1)) AS file_uri
+    FROM 6Q3sMyXEg_posts p
+    WHERE p.post_type = 'attachment'
+      AND p.post_mime_type LIKE 'image/%'
+      AND (SELECT meta_value FROM 6Q3sMyXEg_postmeta WHERE post_id = p.ID AND meta_key = '_wp_attached_file' LIMIT 1) IS NOT NULL
+  ids:
+    ID:
+      type: integer
+process:
+  filename: post_title
+  uri: file_uri
+  filemime: post_mime_type
+  status:
+    plugin: default_value
+    default_value: 1
+destination:
+  plugin: 'entity:file'
+migration_dependencies: {}
