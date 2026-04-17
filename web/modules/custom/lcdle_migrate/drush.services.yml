@@ -1,0 +1,7 @@
+services:
+  lcdle_migrate.commands:
+    class: Drupal\lcdle_migrate\Commands\MigrateAuditCommands
+    arguments:
+      - '@entity_type.manager'
+    tags:
+      - { name: drush.command }
