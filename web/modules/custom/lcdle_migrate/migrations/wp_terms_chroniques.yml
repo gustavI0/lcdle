@@ -1,0 +1,28 @@
+id: wp_terms_chroniques
+label: 'WP Child Categories → Chroniques'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      t.term_id,
+      t.name,
+      t.slug,
+      tt.parent AS parent_term_id
+    FROM 6Q3sMyXEg_terms t
+    JOIN 6Q3sMyXEg_term_taxonomy tt ON t.term_id = tt.term_id
+    WHERE tt.taxonomy = 'category' AND tt.parent != 0
+  ids:
+    term_id:
+      type: integer
+process:
+  vid:
+    plugin: default_value
+    default_value: chroniques
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies:
+  required:
+    - wp_terms_themes

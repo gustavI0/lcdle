@@ -1,0 +1,27 @@
+id: wp_terms_themes
+label: 'WP Root Categories → Themes'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      t.term_id,
+      t.name,
+      t.slug
+    FROM 6Q3sMyXEg_terms t
+    JOIN 6Q3sMyXEg_term_taxonomy tt ON t.term_id = tt.term_id
+    WHERE tt.taxonomy = 'category' AND tt.parent = 0
+      AND t.slug != 'uncategorized'
+      AND t.slug != 'non-classe'
+  ids:
+    term_id:
+      type: integer
+process:
+  vid:
+    plugin: default_value
+    default_value: themes
+  name: name
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {}
