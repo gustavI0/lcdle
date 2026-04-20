@@ -4,8 +4,25 @@
  * @file
  * Theme hooks for the lcdle theme.
  *
- * Kept thin per ADR-004. Non-trivial logic lives in
- * Drupal\lcdle_theme_helpers services (see Task 5).
+ * Kept thin per ADR-004. Non-trivial logic is delegated to
+ * Drupal\lcdle_theme_helpers services.
  */
 
 declare(strict_types=1);
+
+/**
+ * Implements hook_preprocess_HOOK() for html.
+ *
+ * Attaches <link rel="preload"> tags for the critical fonts so the
+ * browser starts fetching them in parallel with the HTML response,
+ * not after the CSS has parsed.
+ *
+ * @phpstan-param array<string, mixed> $variables
+ */
+function lcdle_preprocess_html(array &$variables): void {
+  /** @var \Drupal\lcdle_theme_helpers\FontPreloadHelper $helper */
+  $helper = \Drupal::service('lcdle_theme_helpers.font_preload');
+  foreach ($helper->getPreloadLinks() as $link) {
+    $variables['#attached']['html_head_link'][] = [$link, TRUE];
+  }
+}
