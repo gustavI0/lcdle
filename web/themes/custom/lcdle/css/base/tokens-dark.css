@@ -1,0 +1,52 @@
+/**
+ * @file
+ * Design tokens — dark mode override.
+ *
+ * Applied in two cases:
+ *   1. The OS / browser is in dark mode AND no explicit user preference
+ *      exists (prefers-color-scheme: dark).
+ *   2. The root element has the .dark class (user override via toggle —
+ *      toggle UI arrives in Phase 2B1).
+ *
+ * Only the color tokens change between modes. All other tokens
+ * (typography, spacing, etc.) stay in tokens.css.
+ */
+
+@layer tokens {
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color-bg: #141412;
+      --color-surface: #1E1E1B;
+      --color-text: #EDEDE8;
+      --color-text-muted: #A8A89F;
+      --color-text-subtle: #6B6B62;
+      --color-border: rgba(255, 255, 255, 0.1);
+      --color-accent: #E06040;
+      --color-accent-shadow: #4DA371;
+    }
+  }
+
+  /* Explicit override class — takes precedence over prefers-color-scheme. */
+  :root.dark {
+    --color-bg: #141412;
+    --color-surface: #1E1E1B;
+    --color-text: #EDEDE8;
+    --color-text-muted: #A8A89F;
+    --color-text-subtle: #6B6B62;
+    --color-border: rgba(255, 255, 255, 0.1);
+    --color-accent: #E06040;
+    --color-accent-shadow: #4DA371;
+  }
+
+  /* Explicit opt-out — forces light mode even on dark-mode OS. */
+  :root.light {
+    --color-bg: #FAFAF8;
+    --color-surface: #F2F0EB;
+    --color-text: #1A1A18;
+    --color-text-muted: #6B6B62;
+    --color-text-subtle: #9B9B90;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-accent: #C84B2A;
+    --color-accent-shadow: #2D7A4A;
+  }
+}
