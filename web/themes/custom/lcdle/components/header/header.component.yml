@@ -1,0 +1,34 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Header
+status: experimental
+description: >
+  Top bar: type-set site name (Playfair Display black italic with a green
+  text-shadow that recreates the original logo), tagline, navigation
+  links slot, embedded dark-mode-toggle. The SDC always includes the
+  toggle — the host page shouldn't have to know about it.
+props:
+  type: object
+  required: [site_name]
+  properties:
+    site_name:
+      type: string
+      title: Site name
+    site_sub:
+      type: string
+      title: Tagline
+      description: Short line shown under the site name.
+slots:
+  nav:
+    title: Navigation
+    description: >
+      Navigation links, rendered as raw markup. Typically a set of <a> elements.
+examples:
+  default:
+    props:
+      site_name: "La Culture de l'Écran"
+      site_sub: 'Musique · Cinéma · Art · Jeux · Voyages'
+    slots:
+      nav: |
+        <a href="/articles">Articles</a>
+        <a href="/contributeurs">Contributeurs</a>
+        <a href="/a-propos">À propos</a>

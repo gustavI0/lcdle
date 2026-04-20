@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header__brand">
+    <a class="header__site-name-link" href="/" rel="home">
+      <span class="header__site-name">{{ site_name }}</span>
+    </a>
+    {% if site_sub %}
+      <span class="header__site-sub">{{ site_sub }}</span>
+    {% endif %}
+  </div>
+  <div class="header__actions">
+    <nav class="header__nav" aria-label="{{ 'Navigation principale'|t }}">
+      {% block nav %}{% endblock %}
+    </nav>
+    {% include 'lcdle:dark-mode-toggle' %}
+  </div>
+</header>
