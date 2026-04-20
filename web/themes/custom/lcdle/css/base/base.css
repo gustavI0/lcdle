@@ -1,0 +1,58 @@
+/**
+ * @file
+ * Element-level defaults for lcdle.
+ *
+ * Applies the design tokens to raw HTML elements so that unstyled
+ * pages already render with the correct typography + palette.
+ * Component-specific styling lives in SDC CSS files (Phase 2B+).
+ */
+
+@layer base {
+  html {
+    font-family: var(--font-family-sans);
+    font-size: var(--fs-base);
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    transition:
+      background-color var(--duration-default) ease,
+      color var(--duration-default) ease;
+  }
+
+  body {
+    font-weight: var(--fw-regular);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-serif);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-tight);
+    color: var(--color-text);
+  }
+
+  h1 { font-size: var(--fs-4xl); }
+  h2 { font-size: var(--fs-2xl); }
+  h3 { font-size: var(--fs-xl); }
+  h4 { font-size: var(--fs-lg); }
+  h5, h6 { font-size: var(--fs-base); }
+
+  p {
+    font-size: var(--fs-base);
+    line-height: var(--lh-loose);
+    color: var(--color-text-muted);
+  }
+
+  a {
+    color: var(--color-accent);
+    transition: color var(--duration-fast) ease;
+  }
+
+  a:hover {
+    color: var(--color-text);
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+}

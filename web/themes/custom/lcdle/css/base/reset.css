@@ -1,0 +1,58 @@
+/**
+ * @file
+ * Minimal modern reset for lcdle.
+ *
+ * Scope-limited — we only neutralize what actually bites. We don't
+ * reset list markers or table borders unilaterally; we adjust those
+ * inside the base/component layers where it matters.
+ */
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100svh;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  /* Strip default bold from elements we regularly re-style. */
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

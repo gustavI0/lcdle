@@ -1,0 +1,18 @@
+/**
+ * @file
+ * Cascade layer order for lcdle.
+ *
+ * Loaded first in every page so that later style declarations land
+ * in the right bucket regardless of file load order.
+ *
+ * Order (lowest → highest priority):
+ *   reset      — modern minimal reset, margins/padding, box-sizing.
+ *   tokens     — CSS custom properties (colors, typography, spacing),
+ *                @font-face declarations.
+ *   base       — element-level defaults (html, body, h1-h6, a, etc.)
+ *                that read tokens.
+ *   components — SDC component styles (added in 2B1/2B2).
+ *   utilities  — targeted single-purpose overrides. Use sparingly.
+ */
+
+@layer reset, tokens, base, components, utilities;
