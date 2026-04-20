@@ -124,7 +124,7 @@ Poser l'infrastructure du thème : scaffold, tokens, polices, dark mode, pipelin
 
 - Nom machine : `lcdle`.
 - Package : `LCDLE`.
-- Généré via `drush theme:generate lcdle --name="La Culture de l'Écran"` (Drupal 11 starterkit). Résultat : thème 100 % autonome, aucune dépendance à `stable9` runtime.
+- Généré via `drush theme:generate lcdle --name="La Culture de l'Écran"` (Drupal 11 starterkit). Le thème hérite de **`stable9`** (parent produit par défaut par le starterkit — cohérent avec ADR-004 qui autorise "stable9 ou vierge"). `stable9` fournit le markup minimaliste de base de Drupal core, sans surcouche stylistique.
 - Emplacement : `web/themes/custom/lcdle/`.
 - Activation : default theme = `lcdle`. Admin theme reste `gin`.
 
@@ -269,7 +269,7 @@ Bouton toggle : **placé en 2B1** (c'est un atome Header). En 2A, on teste avec 
 
 - Polices : Playfair Display (serif) + Inter (sans), **self-hostées** (RGPD).
 - Dark mode : **auto + toggle manuel + localStorage** (option C).
-- Theme scaffold : **starterkit Drupal 11** via `drush theme:generate` (pas de parent stable9).
+- Theme scaffold : **starterkit Drupal 11** via `drush theme:generate` (hérite de `stable9` — valeur par défaut du starterkit, autorisée par ADR-004).
 - Logo : **type-setting pur** (Playfair Display 900 Italic + text-shadow vert), pas d'image PNG dans le header. Favicon SVG fourni par l'humain.
 - Découpage : **5 sous-phases** (2A → 2D avec 2B split 2B1/2B2), séquentielles, bascule DNS en fin de 2D.
 - Niveau de finition avant DNS : **B (§7.3 complet)**.

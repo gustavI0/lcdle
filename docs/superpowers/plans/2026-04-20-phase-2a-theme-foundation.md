@@ -13,7 +13,7 @@ phase: "2A — Theme Foundation"
 
 **Goal:** Build the foundation of the custom `lcdle` public theme — scaffolding, self-hosted fonts, design tokens (light + dark), cascade layers, reset, base typography, responsive image pipeline (WebP), and one kernel test proving tokens ship on anonymous pages. No user-facing components yet.
 
-**Architecture:** Generate theme via Drupal 11 `starterkit` (autonomous, no runtime dependency on `stable9`). Design tokens live in one light-mode CSS file + one dark-mode override file, loaded via cascade layers. Fonts self-hosted (WOFF2 from fontsource.org), critical weights preloaded via a companion `lcdle_theme_helpers` module holding OOP helpers (the `.theme` file stays thin). Responsive images via core `image` module + `responsive_image` (no contrib), 4 WebP image styles × 1 responsive style.
+**Architecture:** Generate theme via Drupal 11 `starterkit` (inherits `stable9` per starterkit default — the minimal markup base theme shipped with core; ADR-004 explicitly allows "stable9 or empty"). Design tokens live in one light-mode CSS file + one dark-mode override file, loaded via cascade layers. Fonts self-hosted (WOFF2 from fontsource.org), critical weights preloaded via a companion `lcdle_theme_helpers` module holding OOP helpers (the `.theme` file stays thin). Responsive images via core `image` module + `responsive_image` (no contrib), 4 WebP image styles × 1 responsive style.
 
 **Tech Stack:** Drupal 11, PHP 8.4, vanilla CSS (cascade layers, nesting, custom properties, container queries), WOFF2 fonts, DDEV locally.
 
@@ -240,7 +240,7 @@ ls -la web/themes/custom/lcdle/
 cat web/themes/custom/lcdle/lcdle.info.yml
 ```
 
-Expected: `lcdle.info.yml` has `name: "La Culture de l'Écran"`, `type: theme`, `core_version_requirement: ^11`, `base theme: false` (or a similar autonomous declaration — starterkit generates a standalone theme without inheriting from stable9).
+Expected: `lcdle.info.yml` has `name: "La Culture de l'Écran"`, `type: theme`, `core_version_requirement: ^11`, and `'base theme': stable9` (the starterkit generator inherits the minimal core base theme by default — keep it, consistent with ADR-004).
 
 - [ ] **Step 3: Prune starterkit defaults we don't need in 2A**
 
@@ -299,7 +299,7 @@ git add web/themes/custom/lcdle/
 git -c commit.gpgsign=false commit -m "Scaffold lcdle theme via starterkit (trimmed)
 
 Generated the standalone public theme via the Drupal 11 starterkit
-generator (no stable9 parent), then pruned all illustrative defaults
+generator (inherits stable9 by default — accepted per ADR-004), then pruned all illustrative defaults
 (example CSS, templates, components) so Phase 2A starts from a bare
 shell. Libraries and theme file are empty — subsequent tasks populate
 them with tokens, fonts, and the font preload hook."
@@ -1614,8 +1614,8 @@ Expected: 0 errors. Fix any violations in a commit of its own ("Satisfy phpcs + 
 ```bash
 git tag -a phase-2a-complete -m "Phase 2A — Theme foundation complete
 
-lcdle theme scaffolded via Drupal 11 starterkit (autonomous, no
-stable9 parent), running as the public default.
+lcdle theme scaffolded via Drupal 11 starterkit (base theme stable9,
+as produced by the generator), running as the public default.
 
 Foundation in place:
 - Self-hosted fonts: Playfair Display (400/400i/500/900i) + Inter

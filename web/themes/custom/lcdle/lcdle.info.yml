@@ -3,6 +3,7 @@ type: theme
 'base theme': stable9
 description: "Theme public éditorial de La Culture de l'Écran."
 core_version_requirement: ^11
+package: LCDLE
 version: 1.0.0
 generator: 'starterkit_theme:11.3.6'
 libraries:
