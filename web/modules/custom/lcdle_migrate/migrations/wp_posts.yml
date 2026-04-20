@@ -18,12 +18,14 @@ source:
        FROM 6Q3sMyXEg_postmeta
        WHERE post_id = p.ID AND meta_key = '_thumbnail_id'
        LIMIT 1) AS featured_image_id,
-      (SELECT GROUP_CONCAT(tt.term_id ORDER BY tt.term_id)
-       FROM 6Q3sMyXEg_term_relationships tr
-       JOIN 6Q3sMyXEg_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
-       WHERE tr.object_id = p.ID
-         AND tt.taxonomy = 'category'
-         AND tt.parent = 0) AS category_ids,
+      (SELECT GROUP_CONCAT(DISTINCT root_id ORDER BY root_id)
+       FROM (
+         SELECT CASE WHEN tt.parent = 0 THEN tt.term_id ELSE tt.parent END AS root_id
+         FROM 6Q3sMyXEg_term_relationships tr
+         JOIN 6Q3sMyXEg_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+         WHERE tr.object_id = p.ID
+           AND tt.taxonomy = 'category'
+       ) AS x) AS category_ids,
       (SELECT tt.term_id
        FROM 6Q3sMyXEg_term_relationships tr
        JOIN 6Q3sMyXEg_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
