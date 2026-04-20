@@ -34,14 +34,21 @@ class WpSqlQuery extends SqlBase {
 
   /**
    * {@inheritdoc}
+   *
+   * Not used: the parent's query() returns a SelectInterface, but this plugin
+   * bypasses it entirely via initializeIterator() which executes the raw SQL
+   * directly. Returning NULL is safe because neither count() nor
+   * initializeIterator() call parent::query().
    */
   public function query() {
-    $sql = trim($this->configuration['query']);
-    return $this->getDatabase()->query($sql);
+    // @phpstan-ignore-next-line return.type
+    return NULL;
   }
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, string>
    */
   public function fields(): array {
     return [];
@@ -49,6 +56,8 @@ class WpSqlQuery extends SqlBase {
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<string, array<string, string>>
    */
   public function getIds(): array {
     return $this->configuration['ids'];

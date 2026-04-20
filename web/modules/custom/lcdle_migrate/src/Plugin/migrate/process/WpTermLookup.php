@@ -30,7 +30,7 @@ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 #[MigrateProcess(
   id: 'wp_term_lookup',
 )]
-class WpTermLookup extends ProcessPluginBase implements ContainerFactoryPluginInterface {
+final class WpTermLookup extends ProcessPluginBase implements ContainerFactoryPluginInterface {
 
   /**
    * The migrate lookup service.
@@ -39,6 +39,8 @@ class WpTermLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $configuration
    */
   public function __construct(
     array $configuration,
@@ -52,14 +54,16 @@ class WpTermLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-param array<string, mixed> $configuration
    */
   public static function create(
     ContainerInterface $container,
     array $configuration,
     $plugin_id,
     $plugin_definition,
-  ): static {
-    return new static(
+  ): self {
+    return new self(
       $configuration,
       $plugin_id,
       $plugin_definition,
@@ -69,6 +73,8 @@ class WpTermLookup extends ProcessPluginBase implements ContainerFactoryPluginIn
 
   /**
    * {@inheritdoc}
+   *
+   * @phpstan-return array<int, array{target_id: int|string}>
    */
   public function transform($value, MigrateExecutableInterface $migrate_executable, Row $row, $destination_property): array {
     if (empty($value)) {

@@ -181,9 +181,9 @@ class ShortcodeConverter extends ProcessPluginBase {
    *   Text with youtube shortcodes stripped.
    */
   protected static function convertYoutube(string $text): string {
-    // Block form: [youtube]URL[/youtube]
+    // Block form: [youtube]URL[/youtube].
     $text = preg_replace('/\[youtube\](.*?)\[\/youtube\]/s', '$1', $text);
-    // Inline form: [youtube URL]
+    // Inline form: [youtube URL].
     $text = preg_replace('/\[youtube\s+(https?[^\]]+)\]/i', '$1', $text);
     return $text;
   }
@@ -215,9 +215,9 @@ class ShortcodeConverter extends ProcessPluginBase {
    *   Text with soundcloud shortcodes stripped.
    */
   protected static function convertSoundcloud(string $text): string {
-    // Block form: [soundcloud]URL[/soundcloud]
+    // Block form: [soundcloud]URL[/soundcloud].
     $text = preg_replace('/\[soundcloud\](.*?)\[\/soundcloud\]/s', '$1', $text);
-    // Inline form: [soundcloud URL]
+    // Inline form: [soundcloud URL].
     $text = preg_replace('/\[soundcloud\s+(https?[^\]]+)\]/i', '$1', $text);
     return $text;
   }
