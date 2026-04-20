@@ -1,0 +1,35 @@
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.webp_480
+    - image.style.webp_768
+    - image.style.webp_1024
+    - image.style.webp_1400
+  theme:
+    - lcdle
+id: lcdle_article_cover
+label: 'LCDLE Article Cover'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_480
+    breakpoint_id: lcdle.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_768
+    breakpoint_id: lcdle.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_1024
+    breakpoint_id: lcdle.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_1400
+    breakpoint_id: lcdle.wide
+    multiplier: 1x
+breakpoint_group: lcdle
+fallback_image_style: webp_1024

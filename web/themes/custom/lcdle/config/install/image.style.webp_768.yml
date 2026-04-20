@@ -1,0 +1,22 @@
+langcode: fr
+status: true
+dependencies:
+  module:
+    - image
+name: webp_768
+label: 'WebP 768 (tablet)'
+effects:
+  scale_768:
+    uuid: b2b2b2b2-0001-4a01-a222-222222222221
+    id: image_scale
+    weight: 1
+    data:
+      width: 768
+      height: null
+      upscale: false
+  convert_webp:
+    uuid: b2b2b2b2-0002-4a01-a222-222222222222
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp
