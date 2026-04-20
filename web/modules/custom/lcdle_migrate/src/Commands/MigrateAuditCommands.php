@@ -13,7 +13,7 @@ use Drush\Commands\DrushCommands;
  * Drush audit commands for the LCDLE WordPress → Drupal migration.
  *
  * Provides two commands:
- *  - lcdle:audit-wp   (law): Reports counts and structure from the WP source DB.
+ *  - lcdle:audit-wp   (law): Counts + structure from the WP source DB.
  *  - lcdle:audit-drupal (lad): Reports counts from the Drupal destination.
  *
  * Run both before and after migration to verify completeness.

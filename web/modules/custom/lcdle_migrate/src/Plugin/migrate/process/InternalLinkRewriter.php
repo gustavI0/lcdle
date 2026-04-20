@@ -10,7 +10,7 @@ use Drupal\migrate\ProcessPluginBase;
 use Drupal\migrate\Row;
 
 /**
- * Rewrites absolute internal WordPress URLs in article bodies to relative paths.
+ * Rewrites absolute internal WP URLs in article bodies to relative paths.
  *
  * Converts URLs of the form https://laculturedelecran.com/some-path/ to the
  * relative form /some-path/ so that links and image src attributes continue to
