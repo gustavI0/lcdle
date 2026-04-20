@@ -1,0 +1,10 @@
+lcdle_theme_helpers.homepage_placeholder:
+  path: '/homepage'
+  defaults:
+    _controller: 'Drupal\lcdle_theme_helpers\Controller\HomepagePlaceholderController::build'
+    _title: "La Culture de l'Écran"
+  requirements:
+    # Placeholder homepage: anonymous visitors must see the shell during
+    # Phase 2B1 development. Replaced by the real Views-backed homepage
+    # in 2B2.
+    _access: 'TRUE'
