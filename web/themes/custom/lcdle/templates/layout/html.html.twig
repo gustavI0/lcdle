@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * HTML document override for the lcdle theme.
+ *
+ * The inline script right after <head> reads localStorage synchronously
+ * and applies .dark or .light on <html> before any style is painted.
+ * This prevents a flash of unstyled-color (FOUC) when the user has
+ * picked a theme explicitly.
+ */
+#}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('lcdle-theme');
+          if (t === 'dark') document.documentElement.classList.add('dark');
+          else if (t === 'light') document.documentElement.classList.add('light');
+        } catch (e) { /* localStorage may be blocked; fall back to prefers-color-scheme */ }
+      })();
+    </script>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  <body{{ attributes }}>
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>

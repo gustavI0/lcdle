@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Page shell for the lcdle theme.
+ *
+ * Renders the header SDC, the main content area, and the footer SDC.
+ * Other Drupal regions (sidebar_first, sidebar_second, breadcrumb,
+ * highlighted) are intentionally NOT rendered — the shell stays focused
+ * on header/main/footer until 2B2 introduces real content pages.
+ */
+#}
+<div class="lcdle-layout">
+  {% include 'lcdle:header' with {
+    site_name: 'La Culture de l\'Écran',
+    site_sub: 'Musique · Cinéma · Art · Jeux · Voyages'
+  } only %}
+
+  <main id="main-content" class="lcdle-layout__main" role="main">
+    {{ page.content }}
+  </main>
+
+  {% include 'lcdle:footer' with {
+    site_name: 'La Culture de l\'Écran'
+  } only %}
+</div>

@@ -7,3 +7,4 @@ package: LCDLE
 generator: 'starterkit_theme:11.3.6'
 libraries:
   - lcdle/global
+  - lcdle/components

@@ -10,3 +10,12 @@ global:
       css/base/fonts.css: {}
       css/base/reset.css: {}
       css/base/base.css: {}
+
+# Non-SDC CSS: shell layout + standalone utility classes.
+# Every SDC ships its own CSS via sdc plugin manager; this library only
+# carries layout.css (utilities.css added in Task 2).
+components:
+  version: 1.x
+  css:
+    component:
+      css/components/layout.css: {}

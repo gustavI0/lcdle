@@ -1,0 +1,21 @@
+/**
+ * @file
+ * Shell layout rules.
+ *
+ * .lcdle-layout is the top-level container wrapping header + main + footer
+ * on every page. The 900px cap matches the validated mockups; content
+ * pages (article, profile) add their own inner grid on top of this.
+ */
+
+@layer components {
+  .lcdle-layout {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-5) var(--space-7);
+  }
+
+  .lcdle-layout__main {
+    padding-block: var(--space-6);
+    min-height: 60vh;
+  }
+}
