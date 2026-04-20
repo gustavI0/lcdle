@@ -1,0 +1,5 @@
+name: 'LCDLE Theme Helpers'
+type: module
+description: 'OOP helpers for the lcdle theme (font preload, future theme-level services).'
+package: 'LCDLE'
+core_version_requirement: ^11
