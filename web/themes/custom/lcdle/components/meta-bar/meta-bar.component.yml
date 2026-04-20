@@ -1,0 +1,19 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Meta bar
+status: experimental
+description: >
+  Horizontal list of metadata items (date, reading time, author label,
+  etc.), separated by small dots inserted via CSS. Consumers put any
+  markup they want in the `items` slot; the separator is presentational.
+slots:
+  items:
+    title: Items
+    required: true
+    description: The meta items, typically a series of <span> elements.
+examples:
+  default:
+    slots:
+      items: |
+        <span>Léa Martineau</span>
+        <span>12 avril 2025</span>
+        <span>8 min</span>

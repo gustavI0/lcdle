@@ -1,0 +1,23 @@
+@layer components {
+  .meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-family-sans);
+    font-size: var(--fs-sm);
+    color: var(--color-text-subtle);
+  }
+
+  /* Dot separator between consecutive children. */
+  .meta-bar > :not(:first-child)::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: currentColor;
+    margin-inline-end: var(--space-3);
+    vertical-align: middle;
+  }
+}
