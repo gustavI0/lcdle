@@ -1,0 +1,37 @@
+@layer components {
+  .wide-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-block-start: var(--space-4);
+    border-block-start: var(--bw-hairline) solid var(--color-border);
+  }
+
+  .wide-card__title {
+    font-family: var(--font-family-serif);
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-tight);
+    margin: 0;
+  }
+
+  .wide-card__title a {
+    color: var(--color-text);
+    transition: color var(--duration-fast) ease;
+  }
+
+  .wide-card__title a:hover {
+    color: var(--color-accent);
+  }
+
+  .wide-card__meta {
+    font-family: var(--font-family-sans);
+    font-size: var(--fs-xs);
+    color: var(--color-text-subtle);
+  }
+
+  .wide-card__dot {
+    margin-inline: var(--space-1);
+  }
+}

@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Wide card
+status: experimental
+description: >
+  Image-less horizontal card used on the homepage's "Ailleurs" section.
+  Tag + serif title + meta on one row. Designed to list articles where
+  the cover isn't the draw.
+props:
+  type: object
+  required: [title, url, tag, author_label, published_date, reading_time]
+  properties:
+    title: { type: string, title: 'Article title' }
+    url: { type: string, title: 'Article URL' }
+    tag: { type: string, title: 'Primary tag label' }
+    author_label: { type: string, title: 'Author display name' }
+    published_date: { type: string, title: 'Published date (short, e.g. "10 avr.")' }
+    reading_time: { type: string, title: 'Reading time (e.g. "5 min")' }
+examples:
+  default:
+    props:
+      title: 'FIP la nuit — une radio pour ne pas dormir'
+      url: '/gust/fip-la-nuit'
+      tag: 'Électronique'
+      author_label: 'Gus T.'
+      published_date: '10 avr.'
+      reading_time: '5 min'
