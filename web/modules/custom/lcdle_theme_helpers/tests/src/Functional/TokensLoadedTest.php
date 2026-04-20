@@ -43,6 +43,9 @@ final class TokensLoadedTest extends BrowserTestBase {
     parent::installDefaultThemeFromClassProperty($container);
   }
 
+  /**
+   * The five foundation CSS files must be linked on the front page.
+   */
   public function testTokensCssIsLinkedOnTheFrontPage(): void {
     $this->drupalGet('<front>');
     $this->assertSession()->statusCodeEquals(200);
@@ -77,6 +80,9 @@ final class TokensLoadedTest extends BrowserTestBase {
     );
   }
 
+  /**
+   * Critical font weights must be preloaded in the HTML head.
+   */
   public function testPreloadLinksPresentForCriticalFonts(): void {
     $this->drupalGet('<front>');
     $html = $this->getSession()->getPage()->getHtml();
@@ -93,6 +99,9 @@ final class TokensLoadedTest extends BrowserTestBase {
     );
   }
 
+  /**
+   * No external font CDN (Google Fonts) must be referenced.
+   */
   public function testNoExternalFontHostIsReferenced(): void {
     $this->drupalGet('<front>');
     $html = $this->getSession()->getPage()->getHtml();
