@@ -1,0 +1,62 @@
+/**
+ * @file
+ * Self-hosted @font-face declarations for lcdle.
+ *
+ * All fonts live under /themes/custom/lcdle/fonts/ (see ADR-011).
+ * font-display: swap — show fallback text immediately, swap when ready.
+ */
+
+@layer tokens {
+  /* Playfair Display — serif, titles + brand + pullquotes. */
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../fonts/PlayfairDisplay-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../fonts/PlayfairDisplay-Italic.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../fonts/PlayfairDisplay-Medium.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: italic;
+    font-weight: 900;
+    font-display: swap;
+    src: url('../../fonts/PlayfairDisplay-BlackItalic.woff2') format('woff2');
+  }
+
+  /* Inter — sans, body + UI + nav. */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('../../fonts/Inter-Light.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../../fonts/Inter-Regular.woff2') format('woff2');
+  }
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../../fonts/Inter-Medium.woff2') format('woff2');
+  }
+}
