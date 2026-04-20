@@ -1,0 +1,53 @@
+id: wp_redirects
+label: 'WP Post URLs → Drupal Redirects (301)'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      p.ID,
+      p.post_name
+    FROM 6Q3sMyXEg_posts p
+    WHERE p.post_status = 'publish'
+      AND p.post_type = 'post'
+      AND p.post_name != ''
+  ids:
+    ID:
+      type: integer
+  constants:
+    uri_prefix: 'internal:/node/'
+
+process:
+  # The redirect module stores the source path without leading slash.
+  redirect_source/path: post_name
+
+  _nid:
+    - plugin: migration_lookup
+      migration: wp_posts
+      source: ID
+      no_stub: true
+    - plugin: skip_on_empty
+      method: row
+
+  redirect_redirect/uri:
+    plugin: concat
+    source:
+      - constants/uri_prefix
+      - '@_nid'
+    delimiter: ''
+
+  status_code:
+    plugin: default_value
+    default_value: 301
+
+  language:
+    plugin: default_value
+    default_value: fr
+
+destination:
+  plugin: 'entity:redirect'
+
+migration_dependencies:
+  required:
+    - wp_posts
