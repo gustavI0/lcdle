@@ -1,0 +1,45 @@
+@layer components {
+  .dark-mode-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: var(--bw-hairline) solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition:
+      color var(--duration-fast) ease,
+      background-color var(--duration-fast) ease,
+      border-color var(--duration-fast) ease;
+  }
+
+  .dark-mode-toggle:hover {
+    color: var(--color-text);
+    border-color: var(--color-text-muted);
+  }
+
+  .dark-mode-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  .dark-mode-toggle__icon {
+    display: block;
+  }
+
+  /* Default (light mode): show moon (click to go dark), hide sun. */
+  .dark-mode-toggle__icon--sun { display: none; }
+
+  /* Dark mode: swap icons. */
+  :root.dark .dark-mode-toggle__icon--moon { display: none; }
+  :root.dark .dark-mode-toggle__icon--sun { display: block; }
+
+  /* Auto dark (no user preference, OS is dark): same as .dark. */
+  @media (prefers-color-scheme: dark) {
+    :root:not(.light) .dark-mode-toggle__icon--moon { display: none; }
+    :root:not(.light) .dark-mode-toggle__icon--sun { display: block; }
+  }
+}

@@ -1,0 +1,17 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Dark mode toggle
+status: experimental
+description: >
+  Button that flips between light and dark themes. Source of truth is
+  localStorage['lcdle-theme']. When absent, the theme follows OS
+  preference via prefers-color-scheme. Both sun and moon SVGs are in
+  the DOM; CSS shows the right one based on the active mode. Behavior
+  attached via Drupal.behaviors.lcdleDarkMode.
+libraryOverrides:
+  js:
+    dark-mode-toggle.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+examples:
+  default: {}
