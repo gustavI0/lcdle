@@ -1,0 +1,78 @@
+{#
+/**
+ * @file
+ * Standalone maintenance page.
+ *
+ * Drupal serves this when the site is in maintenance mode, often while
+ * plugins and themes are partially available. We ship a self-contained
+ * page with tokens and typography inlined so the visitor still gets the
+ * right brand language.
+ */
+#}
+<!DOCTYPE html>
+<html lang="{{ language.getId() ?: 'fr' }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <style>
+      :root {
+        --color-bg: #FAFAF8;
+        --color-surface: #F2F0EB;
+        --color-text: #1A1A18;
+        --color-text-muted: #6B6B62;
+        --color-accent: #C84B2A;
+        --color-accent-shadow: #2D7A4A;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-bg: #141412;
+          --color-surface: #1E1E1B;
+          --color-text: #EDEDE8;
+          --color-text-muted: #A8A89F;
+          --color-accent: #E06040;
+          --color-accent-shadow: #4DA371;
+        }
+      }
+      body {
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+        background-color: var(--color-bg);
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+      .maintenance { max-width: 640px; text-align: center; display: flex; flex-direction: column; gap: 1rem; }
+      .maintenance__brand {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 900;
+        font-style: italic;
+        font-size: 2rem;
+        color: var(--color-accent);
+        text-shadow: 3px 3px 0 var(--color-accent-shadow);
+        margin: 0;
+      }
+      .maintenance__title {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 400;
+        font-size: 1.75rem;
+        margin: 0;
+      }
+      .maintenance__body {
+        color: var(--color-text-muted);
+        line-height: 1.55;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="maintenance" role="main">
+      <h1 class="maintenance__brand">{{ 'La Culture de l\'Écran'|t }}</h1>
+      <h2 class="maintenance__title">{{ 'Site en maintenance'|t }}</h2>
+      <p class="maintenance__body">{{ "Le site est temporairement indisponible pour maintenance. Merci de revenir dans un instant."|t }}</p>
+    </div>
+  </body>
+</html>
