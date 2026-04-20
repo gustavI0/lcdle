@@ -1,0 +1,57 @@
+/**
+ * @file
+ * Small CSS utility patterns that don't deserve full SDCs.
+ *
+ * .lcdle-tag             — small-caps label with accent color, used in
+ *                          cards, article pages, sidebars.
+ * .lcdle-lettrine        — drop-cap on the first paragraph of a container.
+ *                          Applied as a class on the wrapper (e.g. the
+ *                          article body container).
+ * .lcdle-section-separator — horizontal divider + label, used on the
+ *                          homepage to separate sections.
+ */
+
+@layer utilities {
+  .lcdle-tag {
+    display: inline-block;
+    font-family: var(--font-family-sans);
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  .lcdle-lettrine > p:first-of-type::first-letter {
+    font-family: var(--font-family-serif);
+    font-size: 3.25em;
+    font-weight: var(--fw-regular);
+    float: left;
+    line-height: 0.85;
+    margin-inline-end: var(--space-2);
+    color: var(--color-text);
+  }
+
+  .lcdle-section-separator {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    margin-block: var(--space-7) var(--space-5);
+  }
+
+  .lcdle-section-separator__label {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-medium);
+    letter-spacing: var(--ls-wider);
+    text-transform: uppercase;
+    color: var(--color-text-subtle);
+    white-space: nowrap;
+  }
+
+  .lcdle-section-separator::after {
+    content: '';
+    flex: 1;
+    height: var(--bw-hairline);
+    background-color: var(--color-border);
+  }
+}

@@ -19,3 +19,4 @@ components:
   css:
     component:
       css/components/layout.css: {}
+      css/components/utilities.css: {}
