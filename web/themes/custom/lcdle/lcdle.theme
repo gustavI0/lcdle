@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * @file
+ * Theme hooks for the lcdle theme.
+ *
+ * Kept thin per ADR-004. Non-trivial logic lives in
+ * Drupal\lcdle_theme_helpers services (see Task 5).
+ */
+
+declare(strict_types=1);
