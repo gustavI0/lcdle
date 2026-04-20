@@ -1,0 +1,110 @@
+id: wp_posts
+label: 'WP Posts → Drupal Articles'
+migration_group: lcdle_wp
+source:
+  plugin: wp_sql_query
+  key: wp
+  query: |
+    SELECT
+      p.ID,
+      p.post_title,
+      p.post_content,
+      p.post_excerpt,
+      p.post_name,
+      p.post_author,
+      p.post_date,
+      p.post_modified,
+      (SELECT meta_value
+       FROM 6Q3sMyXEg_postmeta
+       WHERE post_id = p.ID AND meta_key = '_thumbnail_id'
+       LIMIT 1) AS featured_image_id,
+      (SELECT GROUP_CONCAT(tt.term_id ORDER BY tt.term_id)
+       FROM 6Q3sMyXEg_term_relationships tr
+       JOIN 6Q3sMyXEg_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+       WHERE tr.object_id = p.ID
+         AND tt.taxonomy = 'category'
+         AND tt.parent = 0) AS category_ids,
+      (SELECT tt.term_id
+       FROM 6Q3sMyXEg_term_relationships tr
+       JOIN 6Q3sMyXEg_term_taxonomy tt ON tr.term_taxonomy_id = tt.term_taxonomy_id
+       WHERE tr.object_id = p.ID
+         AND tt.taxonomy = 'category'
+         AND tt.parent != 0
+       LIMIT 1) AS child_category_id
+    FROM 6Q3sMyXEg_posts p
+    WHERE p.post_status = 'publish'
+      AND p.post_type = 'post'
+  ids:
+    ID:
+      type: integer
+
+process:
+  type:
+    plugin: default_value
+    default_value: article
+
+  title: post_title
+
+  body/value:
+    - plugin: shortcode_converter
+      source: post_content
+    - plugin: internal_link_rewriter
+
+  body/format:
+    plugin: default_value
+    default_value: full_html
+
+  field_excerpt: post_excerpt
+
+  uid:
+    plugin: migration_lookup
+    migration: wp_users
+    source: post_author
+    no_stub: true
+
+  field_cover_image/target_id:
+    - plugin: skip_on_empty
+      source: featured_image_id
+      method: process
+    - plugin: migration_lookup
+      migration: wp_media_entities
+      no_stub: true
+
+  field_themes:
+    plugin: wp_term_lookup
+    source: category_ids
+    migration: wp_terms_themes
+
+  field_chronique/target_id:
+    - plugin: skip_on_empty
+      source: child_category_id
+      method: process
+    - plugin: migration_lookup
+      migration: wp_terms_chroniques
+      no_stub: true
+
+  created:
+    plugin: format_date
+    source: post_date
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+
+  changed:
+    plugin: format_date
+    source: post_modified
+    from_format: 'Y-m-d H:i:s'
+    to_format: 'U'
+
+  moderation_state:
+    plugin: default_value
+    default_value: published
+
+destination:
+  plugin: 'entity:node'
+
+migration_dependencies:
+  required:
+    - wp_users
+    - wp_media_entities
+    - wp_terms_themes
+    - wp_terms_chroniques
