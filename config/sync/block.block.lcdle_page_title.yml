@@ -1,0 +1,20 @@
+uuid: a29a64dd-50e2-4210-aa13-84274e274b30
+langcode: en
+status: true
+dependencies:
+  theme:
+    - lcdle
+_core:
+  default_config_hash: Oh72CHUkp6cj6dbrXMK2hzCsM05w9cHVoD22rMLQUfk
+id: lcdle_page_title
+theme: lcdle
+region: content
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

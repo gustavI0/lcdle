@@ -1,0 +1,20 @@
+uuid: 9d54bc9e-c596-4c11-9b78-5dc87e9c3683
+langcode: en
+status: true
+dependencies:
+  theme:
+    - lcdle
+_core:
+  default_config_hash: ABoKnlk20KHqZRw_2Qr4EvaFvH4lnQ2nuhunHeE1JIU
+id: lcdle_local_actions
+theme: lcdle
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

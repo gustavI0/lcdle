@@ -1,0 +1,23 @@
+uuid: 757457b2-52e8-4649-83fe-6cd70d216b1f
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zhIgI7jCaP6kp0yHGos0sVfreJkahnHoETMLKnucSnI
+name: webp_1400
+label: 'WebP 1400 (wide)'
+effects:
+  scale_1400:
+    uuid: b4b4b4b4-0001-4a01-a444-444444444441
+    id: image_scale
+    weight: 1
+    data:
+      width: 1400
+      height: null
+      upscale: false
+  convert_webp:
+    uuid: b4b4b4b4-0002-4a01-a444-444444444442
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

@@ -1,0 +1,23 @@
+uuid: 5109ab01-69e1-4ee4-a9e7-8a6cfb6fc777
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: zzSEE99lKtOytAwe9cMfMZhwHjndecMP0CcJ8XpvxRc
+name: webp_480
+label: 'WebP 480 (mobile)'
+effects:
+  scale_480:
+    uuid: b1b1b1b1-0001-4a01-a111-111111111111
+    id: image_scale
+    weight: 1
+    data:
+      width: 480
+      height: null
+      upscale: false
+  convert_webp:
+    uuid: b1b1b1b1-0002-4a01-a111-111111111112
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

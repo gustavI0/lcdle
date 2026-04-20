@@ -1,0 +1,23 @@
+uuid: 096d6256-8869-4479-96ab-d7449ac34e2c
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Ymv28DqJ-QUPbMO_ScDFcm4rqL6e9gjPQnsJz1NscaY
+name: webp_1024
+label: 'WebP 1024 (desktop)'
+effects:
+  scale_1024:
+    uuid: b3b3b3b3-0001-4a01-a333-333333333331
+    id: image_scale
+    weight: 1
+    data:
+      width: 1024
+      height: null
+      upscale: false
+  convert_webp:
+    uuid: b3b3b3b3-0002-4a01-a333-333333333332
+    id: image_convert
+    weight: 2
+    data:
+      extension: webp

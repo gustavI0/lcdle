@@ -1,0 +1,38 @@
+uuid: 3159fb94-e3b3-4e5d-9dc5-17d04da6a8e7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - image.style.webp_1024
+    - image.style.webp_1400
+    - image.style.webp_480
+    - image.style.webp_768
+  theme:
+    - lcdle
+_core:
+  default_config_hash: 3eC2jgeH14depXNv79F9TeglXNgiUrWP9MP8_ESmc5E
+id: lcdle_article_cover
+label: 'LCDLE Article Cover'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_480
+    breakpoint_id: lcdle.mobile
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_768
+    breakpoint_id: lcdle.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_1024
+    breakpoint_id: lcdle.desktop
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: webp_1400
+    breakpoint_id: lcdle.wide
+    multiplier: 1x
+breakpoint_group: lcdle
+fallback_image_style: webp_1024

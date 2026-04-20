@@ -1,0 +1,27 @@
+uuid: 82514c01-294a-4157-80c5-111996fe110a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - lcdle
+_core:
+  default_config_hash: 21gTvrC3-X1nBOt2rLuxMV9LqgyW8pnzfKXMeq-dnPI
+id: lcdle_tools
+theme: lcdle
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  label_display: visible
+  provider: system
+  level: 1
+  depth: null
+  expand_all_items: false
+visibility: {  }

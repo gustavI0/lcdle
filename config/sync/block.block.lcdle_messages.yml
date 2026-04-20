@@ -1,0 +1,22 @@
+uuid: 70ec711a-0c7e-4ecb-95b7-04734545a20d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - lcdle
+_core:
+  default_config_hash: aeqlWs7HwctZeZC7ADcbxfqehJzBRfZKmuZz3DsH3_4
+id: lcdle_messages
+theme: lcdle
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }
