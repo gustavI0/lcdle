@@ -1,2 +1,12 @@
-# Theme libraries for lcdle.
-# Populated as Phase 2A progresses.
+# Global library — always loaded via the 'libraries' key in lcdle.info.yml.
+# Order matters: layers → tokens → fonts → reset → base.
+global:
+  version: 1.x
+  css:
+    base:
+      css/layers.css: {}
+      css/base/tokens.css: {}
+      css/base/tokens-dark.css: {}
+      css/base/fonts.css: {}
+      css/base/reset.css: {}
+      css/base/base.css: {}
