@@ -1,0 +1,87 @@
+/**
+ * @file
+ * Design tokens — light mode defaults.
+ *
+ * Categories (see SPEC-002 §4.4): color, font-family, font-size,
+ * font-weight, line-height, letter-spacing, space, radius,
+ * border-width, breakpoint, duration.
+ *
+ * Dark mode override lives in tokens-dark.css.
+ */
+
+@layer tokens {
+  :root {
+    /* Color — light mode. */
+    --color-bg: #FAFAF8;
+    --color-surface: #F2F0EB;
+    --color-text: #1A1A18;
+    --color-text-muted: #6B6B62;
+    --color-text-subtle: #9B9B90;
+    --color-border: rgba(0, 0, 0, 0.1);
+    --color-accent: #C84B2A;
+    --color-accent-shadow: #2D7A4A;
+
+    /* Font family — fallback stacks minimize layout shift. */
+    --font-family-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-family-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+    /* Font size — modular scale, ratio 1.25 (major third), base 16px. */
+    --fs-xs: 0.75rem;      /* 12px */
+    --fs-sm: 0.8125rem;    /* 13px */
+    --fs-base: 1rem;       /* 16px */
+    --fs-lg: 1.125rem;     /* 18px */
+    --fs-xl: 1.25rem;      /* 20px */
+    --fs-2xl: 1.5rem;      /* 24px */
+    --fs-3xl: 1.875rem;    /* 30px */
+    --fs-4xl: 2.25rem;     /* 36px */
+    --fs-5xl: 2.75rem;     /* 44px */
+
+    /* Font weight — must match declared @font-face weights. */
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-black: 900;
+
+    /* Line height. */
+    --lh-tight: 1.2;
+    --lh-normal: 1.55;
+    --lh-loose: 1.8;
+
+    /* Letter spacing. */
+    --ls-tight: -0.02em;
+    --ls-normal: 0;
+    --ls-wide: 0.05em;
+    --ls-wider: 0.15em;
+
+    /* Space — 4px base scale. */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+    --space-9: 96px;
+
+    /* Radius. */
+    --radius-sm: 3px;
+    --radius-md: 4px;
+    --radius-lg: 8px;
+
+    /* Border width. */
+    --bw-hairline: 0.5px;
+    --bw-default: 1px;
+    --bw-emphasis: 2px;
+
+    /* Breakpoint — consumed by @media and @container queries in components. */
+    --bp-mobile: 480px;
+    --bp-tablet: 768px;
+    --bp-desktop: 1024px;
+    --bp-wide: 1400px;
+
+    /* Duration. */
+    --duration-fast: 150ms;
+    --duration-default: 300ms;
+  }
+}
