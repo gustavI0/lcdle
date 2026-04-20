@@ -1,0 +1,40 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Article card
+status: experimental
+description: >
+  Teaser card for an article: cover image (or 4:3 surface placeholder),
+  tag label, serif title, small meta line with author + reading time.
+  Used on homepage, theme pages, chronique pages.
+props:
+  type: object
+  required: [title, url, tag, author_label, reading_time]
+  properties:
+    title:
+      type: string
+      title: Article title
+    url:
+      type: string
+      title: Article URL
+    tag:
+      type: string
+      title: Primary tag label
+    author_label:
+      type: string
+      title: Author display name
+    reading_time:
+      type: string
+      title: Reading time (e.g. "8 min")
+slots:
+  cover:
+    title: Cover image
+    description: >
+      Responsive image render array. When empty, a 4:3 surface placeholder
+      renders in its place.
+examples:
+  default:
+    props:
+      title: "Wim Wenders à Tokyo — l'ordinaire comme révélation"
+      url: '/hugob/wim-wenders-a-tokyo'
+      tag: 'Cinéma'
+      author_label: 'Hugo B.'
+      reading_time: '8 min'

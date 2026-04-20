@@ -1,0 +1,18 @@
+<article class="article-card">
+  <a class="article-card__cover-link" href="{{ url }}" tabindex="-1" aria-hidden="true">
+    {% if block('cover') is not empty %}
+      <div class="article-card__cover">{% block cover %}{% endblock %}</div>
+    {% else %}
+      <div class="article-card__cover article-card__cover--placeholder" aria-hidden="true">4:3</div>
+    {% endif %}
+  </a>
+  <span class="article-card__tag lcdle-tag">{{ tag }}</span>
+  <h3 class="article-card__title">
+    <a href="{{ url }}">{{ title }}</a>
+  </h3>
+  <div class="article-card__meta">
+    <span class="article-card__author">{{ author_label }}</span>
+    <span class="article-card__dot" aria-hidden="true">·</span>
+    <span class="article-card__time">{{ reading_time }}</span>
+  </div>
+</article>
