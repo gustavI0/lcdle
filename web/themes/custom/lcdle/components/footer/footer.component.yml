@@ -1,0 +1,26 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Footer
+status: experimental
+description: >
+  Simple site footer: site name on the left, a set of links on the right.
+  No images, no social icons, no newsletter CTA at MVP (those arrive in 2B2 or later).
+props:
+  type: object
+  required: [site_name]
+  properties:
+    site_name:
+      type: string
+      title: Site name
+slots:
+  links:
+    title: Footer links
+    description: Raw markup (typically <a> elements).
+examples:
+  default:
+    props:
+      site_name: "La Culture de l'Écran"
+    slots:
+      links: |
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a>
+        <a href="/rss">RSS</a>
