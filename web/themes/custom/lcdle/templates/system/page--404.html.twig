@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * 404 page override. Inherits the shell layout from page.html.twig.
+ * Content replaces the default Drupal 404 message with a localized,
+ * typographic error screen.
+ */
+#}
+{% extends "@lcdle/layout/page.html.twig" %}
+
+{% block content %}
+  <div class="lcdle-system-page">
+    <p class="lcdle-tag">{{ 'Erreur 404'|t }}</p>
+    <h1 class="lcdle-system-page__title">{{ 'Page introuvable'|t }}</h1>
+    <p class="lcdle-system-page__body">{{ "La page que vous cherchez n'existe pas ou a été déplacée."|t }}</p>
+    <a class="lcdle-system-page__action" href="/">{{ "Retour à l'accueil"|t }} →</a>
+  </div>
+{% endblock %}

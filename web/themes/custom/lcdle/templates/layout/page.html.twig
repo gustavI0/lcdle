@@ -16,7 +16,7 @@
   } only %}
 
   <main id="main-content" class="lcdle-layout__main" role="main">
-    {{ page.content }}
+    {% block content %}{{ page.content }}{% endblock %}
   </main>
 
   {% include 'lcdle:footer' with {

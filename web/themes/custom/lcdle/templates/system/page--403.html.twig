@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * 403 (access denied) page override.
+ */
+#}
+{% extends "@lcdle/layout/page.html.twig" %}
+
+{% block content %}
+  <div class="lcdle-system-page">
+    <p class="lcdle-tag">{{ 'Erreur 403'|t }}</p>
+    <h1 class="lcdle-system-page__title">{{ 'Accès refusé'|t }}</h1>
+    <p class="lcdle-system-page__body">{{ "Vous n'êtes pas autorisé à accéder à cette page."|t }}</p>
+    {% if logged_in %}
+      <a class="lcdle-system-page__action" href="/">{{ "Retour à l'accueil"|t }} →</a>
+    {% else %}
+      <a class="lcdle-system-page__action" href="/user/login">{{ 'Se connecter'|t }} →</a>
+    {% endif %}
+  </div>
+{% endblock %}
