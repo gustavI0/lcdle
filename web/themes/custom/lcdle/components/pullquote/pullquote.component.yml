@@ -1,0 +1,20 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Pullquote
+status: experimental
+description: >
+  Editorial pullquote with an accent-colored left rail, serif italic
+  quote, and a small attribution line. `cite` slot is optional.
+slots:
+  quote:
+    title: Quote
+    required: true
+    description: The quoted text, wrapped in <p>.
+  cite:
+    title: Attribution
+    description: Optional attribution (author, year). Rendered plain text.
+examples:
+  default:
+    slots:
+      quote: |
+        <p>Je travaille avec peu d'éléments — une voix, deux notes.</p>
+      cite: '— Arvo Pärt, entretien de 1978'

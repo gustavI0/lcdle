@@ -1,0 +1,31 @@
+@layer components {
+  .pullquote {
+    margin-block: var(--space-6);
+    margin-inline: 0;
+    padding-block: var(--space-2);
+    padding-inline-start: var(--space-5);
+    border-inline-start: var(--bw-emphasis) solid var(--color-accent);
+  }
+
+  .pullquote__quote {
+    font-family: var(--font-family-serif);
+    font-size: var(--fs-xl);
+    font-style: italic;
+    line-height: var(--lh-normal);
+    color: var(--color-text);
+  }
+
+  .pullquote__quote > p {
+    margin: 0;
+  }
+
+  .pullquote__cite {
+    display: block;
+    margin-block-start: var(--space-2);
+    font-family: var(--font-family-sans);
+    font-size: var(--fs-xs);
+    font-style: normal;
+    letter-spacing: var(--ls-wide);
+    color: var(--color-text-subtle);
+  }
+}

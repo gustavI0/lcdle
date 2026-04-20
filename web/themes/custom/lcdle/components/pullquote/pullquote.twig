@@ -1,0 +1,6 @@
+<blockquote class="pullquote">
+  <div class="pullquote__quote">{% block quote %}{% endblock %}</div>
+  {% if block('cite') is not empty %}
+    <cite class="pullquote__cite">{% block cite %}{% endblock %}</cite>
+  {% endif %}
+</blockquote>
