@@ -1,0 +1,50 @@
+$schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
+name: Author chip
+status: experimental
+description: >
+  Compact author block: avatar (initials or image) + name, optionally
+  with a role label and a link to the author's profile. Three size
+  variants (sm / md / lg) for meta bars, sidebars, and contributor
+  strips.
+props:
+  type: object
+  required: [name, url, avatar_initials]
+  properties:
+    name:
+      type: string
+      title: Display name
+    url:
+      type: string
+      title: Profile URL
+    avatar_initials:
+      type: string
+      title: Avatar initials
+      description: Two letters shown when avatar_src is absent.
+    avatar_src:
+      type: string
+      title: Avatar image URL
+      description: Takes precedence over avatar_initials when set.
+    size:
+      type: string
+      title: Size variant
+      enum: [sm, md, lg]
+      default: md
+    role:
+      type: string
+      title: Role label
+      description: Optional subtitle under the name (e.g. "Musique classique").
+examples:
+  default:
+    props:
+      name: 'Léa Martineau'
+      url: '/leamartineau'
+      avatar_initials: 'LM'
+      size: md
+      role: 'Musique classique & ambient'
+  large:
+    props:
+      name: 'Hugo B.'
+      url: '/hugob'
+      avatar_initials: 'HB'
+      size: lg
+      role: "Cinéma d'auteur"

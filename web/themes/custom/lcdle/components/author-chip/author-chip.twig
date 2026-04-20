@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Author chip template.
+ *
+ * Props: name, url, avatar_initials, avatar_src, size, role.
+ */
+#}
+<a class="author-chip author-chip--{{ size|default('md') }}" href="{{ url }}" rel="author">
+  {% if avatar_src %}
+    <img class="author-chip__avatar author-chip__avatar--image" src="{{ avatar_src }}" alt="" />
+  {% else %}
+    <span class="author-chip__avatar" aria-hidden="true">{{ avatar_initials }}</span>
+  {% endif %}
+  <span class="author-chip__info">
+    <span class="author-chip__name">{{ name }}</span>
+    {% if role %}
+      <span class="author-chip__role">{{ role }}</span>
+    {% endif %}
+  </span>
+</a>
